@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta viewport="width=device-width inital-scale=1.0">
+    <meta name="author" content="Chuku Omoke">
+    <meta name="description" content="User can request for a loan on this page">
+
+    <title>Request loan</title>
+    <link rel="stylesheet" type="text/css" href="../css/applyloan.css">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <section class="personal">
+            <h1>Loan Application</h1>
+            <form>
+                <div class="card">
+                    <h3>PERSONAL</h3>
+                    <div class="input-group">
+                        <input type="text" name="first" placeholder="First Name">
+                        <input type="text" name="last" placeholder="Last Name">
+                    </div>
+                    <div class="input-row">
+                        <input type="email" name="email" placeholder="Email Address">
+                    </div>
+                    <div class="input-group">
+                        <select>
+                            <option>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+
+                        <select>
+                            <option>Marital Status</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <input type="datetime" name="dob" placeholder="Date of birth">
+                    </div>
+                    <div class="input-row">
+                        <input type="tel" name="number" placeholder="Phone number">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>RESIDENCE</h3>
+                    <div class="input-row">
+                        <input type="text" name="address" placeholder="Current Address">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" name="city" placeholder="City">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" name="stateor" placeholder="State of residence">
+                    </div>
+                    <div class="input-group">
+                        <select class="single">
+                            <option value="Residence">Residence Type</option>
+                            <option value="rented">Rented</option>
+                            <option value="owned">Owned</option>
+                            <option value="family-house">Family House</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" name="duration" placeholder="Duration of stay">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>EMPLOYMENT</h3>
+                    <div class="input-group">
+                        <select>
+                            <option>Education</option>
+                            <option value="student">Student</option>
+                            <option value="graduate">First Degree</option>
+                            <option value="postgrag">Masters</option>
+                            <option value="phd">PHD</option>
+                        </select>
+
+                        <select>
+                            <option>Employment Status</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="selfemployed">Self Employed</option>
+                            <option value="employed">Employed</option>
+                        </select>
+                    </div>
+                    <div class="input-row">
+                        <input type="text" name="employer" placeholder="Employer/ Business ">
+                    </div>
+                    <div class="input-row">
+                        <input type="datetime" name="workexperience" placeholder="How long have you worked there?">
+                    </div>
+                    <div class="input-row">
+                        <input type="text" name="income" placeholder="Current Income">
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>BANK DETAILS</h3>
+                    <div class="input-group">
+                        <input type="text" name="bank-name" placeholder="Bank Name" required>
+                        <input type="text" name="account-number" placeholder="Account Number" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="account-name" placeholder="Name on account" required>
+                        <input type="text" name="bvn" placeholder="BVN" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button">Request Loan</button>
+            </form>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+
+</html>

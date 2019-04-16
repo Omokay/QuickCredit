@@ -1,0 +1,85 @@
+body{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.personal{
+    width: 100%;
+    padding: 30px;
+}
+
+.card{
+    margin: 10px auto;
+    width: 500px;
+    text-align: center;
+    border: 1px solid black;
+    padding-bottom: 5PX;
+}
+
+form{
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    width: 500PX;
+}
+
+h1{
+    text-align: center;
+}
+
+input{
+    border: 1px solid black;
+    outline: none;
+}
+
+.input-group{
+    display: inline-block;
+}
+
+.input-group input{
+    width: 188px;
+    height: 35px;
+    margin: 5px;
+    padding: 5px;    
+}
+
+.input-group select{
+    width: 198px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.input-group .single{
+    width: 410px;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.input-row input{
+    width: 400px;
+    height: 35px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.submit-button{
+    background-color: black;
+    width: 500px;
+    margin: auto;
+    border: none;
+    outline: none;
+    color: white;
+    height: 50px;
+    font-weight: 200;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
