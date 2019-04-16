@@ -1,0 +1,79 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+    max-height: 100vh;
+}
+
+.signin-view{
+    background-color: white;
+    padding: 50px 5px 20px 5px;
+    margin: auto;
+}
+
+.signin-form-container{
+    width: 600px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 2px;
+    outline: none;
+}
+
+form .input-div input{
+    width: 300px;
+    height: 65px;
+    border: 2px solid black;
+    color: black;
+    outline: none;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: left !important;
+}
+
+form{
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.login-button{
+    width: 314px;
+    outline: none;
+    border: none;
+    height: 70px;
+    background-color: black;
+    color: white;
+    font-weight: 300;
+    font-size: 20px;
+    cursor: pointer;
+}
+.create-account-link{
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    color: black;
+}
+
+
+.create-account-link p a{
+    text-decoration: none;
+    outline: none;
+
+}
+
+.reset-link a{
+    text-decoration: none;
+    outline: none;
+}
+
+footer{
+    text-align: center;
+    font-size: 20px;
+    color: black;
+}
