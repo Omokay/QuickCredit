@@ -9,6 +9,7 @@
     <title>Admin Dashboard</title>
     <link href="../css/adminIndex.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -20,45 +21,155 @@
         </nav>
     </header>
     <main>
-        <section id="admin-dashboard">
-            <h2>Quick Credit</h2>
+        <section class="admin-dashboard">
+            <h2>Dashboard</h2>
             <div class="overview">
 
                 <div class="overview-item">
-
-                    <div>
-                        <p id="user-total">300<span id="user-title">Users</span></p>
-                        
-                    </div>
-
+                    <p id="user-total" class="stats-total">393&nbsp;<span id="user-total-span" class="stats-title">Registered<br>
+                            Users</span></p>
+                    <button type="button" class="quickstats-button">View all&nbsp;</button>
                 </div>
 
-                <div class="overview-item"></div>
-                <div class="overview-item"></div>
-                <div class="overview-item"></div>
+                <div class="overview-item">
+                    <p id="loan-total" class="stats-total">50&nbsp;<span id="loan-total-span" class="stats-title">Loan<br>
+                            Applications</span></p>
+                    <button type="button" class="quickstats-button">View all&nbsp;</button>
+                </div>
+
+                <div class="overview-item">
+                    <p id="total-paid" class="stats-total">80&nbsp;<span id="total-paid-span" class="stats-title">Repaid<br>Loans</span></p>
+                    <button type="button" class="quickstats-button">View all&nbsp;</button>
+                </div>
+
+                <div class="overview-item">
+                    <p id="total-unpaid" class="stats-total">250&nbsp;<span id="total-unpaid-span" class="stats-title">Unpaid<br>Loans</span></p>
+                    <button type="button" class="quickstats-button">View all&nbsp;</button>
+                </div>
             </div>
 
-            <div class="list-view">
-                <div class="loan-applications">
-                    <h3>Loan applications</h3>
-                    <table>
-                        <thead></thead>
-                        <tbody id="loan-applications-table">
-                            <tr>
-                                <th>Loan id</th>
-                                <th>Amount</th>
-                                <th>Purpose</th>
-                                <th>Approve</th>
-                                <th>Reject</th>
-                            </tr>
-                            <tr>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                    </ul>
+            <div class="user-verification">
+                <div class="verify-title-div">
+                    <h3 id="verify-title">Users requiring confirmation</h3>
+                    <button id="verify-view-all" type="button">View all</button>
                 </div>
-                <div class="loan-applications"></div>
+                <table class="user-verify">
+                    <thead>
+                        <tr>
+                            <th>INITIALS</th>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>DATE REGISTERED</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody class="user-verify-list">
+
+                        <tr class="user-verify-listitem">
+                            <td id="listitem1">
+                                <h4>OC</h4>
+                            </td>
+                            <td id="listitem2">
+                                <p>5376</p>
+                            </td>
+                            <td id="listitem3">
+                                <p>Omoke Chuku</p>
+                            </td>
+                            <td id="listitem4">
+                                <p>chuku.omoke@gmail.com</p>
+                            </td>
+                            <td id="listitem5">
+                                <p>Registered 15th May 2019</p>
+                            </td>
+                            <td id="listitem6">
+                                <p>Not verified</p>
+                            </td>
+                            <td id="listitem7">
+                                <button type="button" class="user-details">More Details</button>
+                            </td>
+                        </tr>
+
+                        <tr class="user-verify-listitem">
+                            <td id="listitem1">
+                                <h4>OC</h4>
+                            </td>
+                            <td id="listitem2">
+                                <p>5376</p>
+                            </td>
+                            <td id="listitem3">
+                                <p>Omoke Chuku</p>
+                            </td>
+                            <td id="listitem4">
+                                <p>chuku.omoke@gmail.com</p>
+                            </td>
+                            <td id="listitem5">
+                                <p>Registered 15th May 2019</p>
+                            </td>
+                            <td id="listitem6">
+                                <p>Not verified</p>
+                            </td>
+                            <td id="listitem7"><button type="button" class="user-details">More Details</button></td>
+                        </tr>
+
+                        <tr class="user-verify-listitem">
+                            <td id="listitem1">
+                                <h4>OC</h4>
+                            </td>
+                            <td id="listitem2">
+                                <p>5376</p>
+                            </td>
+                            <td id="listitem3">
+                                <p>Omoke Chuku</p>
+                            </td>
+                            <td id="listitem4">
+                                <p>chuku.omoke@gmail.com</p>
+                            </td>
+                            <td id="listitem5">
+                                <p>Registered 15th May 2019</p>
+                            </td>
+                            <td id="listitem6">
+                                <p>Not verified</p>
+                            </td>
+                            <td id="listitem7"><button type="button" class="user-details">More Details</button></td>
+                        </tr>
+
+                        <tr class="user-verify-listitem">
+                            <td id="listitem1">
+                                <h4>OC</h4>
+                            </td>
+                            <td id="listitem2">
+                                <p>5376</p>
+                            </td>
+                            <td id="listitem3">
+                                <p>Omoke Chuku</p>
+                            </td>
+                            <td id="listitem4">
+                                <p>chuku.omoke@gmail.com</p>
+                            </td>
+                            <td id="listitem5">
+                                <p>Registered 15th May 2019</p>
+                            </td>
+                            <td id="listitem6">
+                                <p>Not verified</p>
+                            </td>
+                            <td id="listitem7"><button type="button" class="user-details">More Details</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="admin-dashboard">
+            <div class="section-two">
+                <div class="stats-card-1">
+                    <p id="loan-approved" class="stats-total">50&nbsp;<span id="loan-total-span" class="stats-title">Loans<br>
+                            Approved</span></p>
+                </div>
+                <div class="stats-card-2">
+                    <p id="loan-denied" class="stats-total">70&nbsp;<span id="loan-total-span" class="stats-title">Loans<br>
+                            Denied</span></p>
+                </div>
             </div>
         </section>
     </main>
