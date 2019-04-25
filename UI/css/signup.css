@@ -1,15 +1,33 @@
 body{
     margin: 0;
-    padding: 0 20px;
+    padding: 0;
     font-family: 'Lora', serif;
     text-align: center;
     color: black;
 }
 
+#overlay {
+    position: absolute; 
+    width: 100%; 
+    height: 100vh;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+linear-gradient(to bottom, rgba(26, 22, 25, 0.73), rgba(48, 20, 41, 0.73)),
+url('../files/images/cover-signup.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -1; 
+  }
+
+
 .signup-view{
     width: 100%;
     height: 100vh;
-    padding-top: 50px;
+    padding-top: 8%;
+    position: relative;
     
 }
 
@@ -17,8 +35,14 @@ body{
     width: 500px;
     margin: auto;
     text-align: center;
-    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #eeeeee;
+    padding: 10px;
 
+}
+
+h1{
+    color: #494ca2;
 }
 
 form{
@@ -37,10 +61,14 @@ form .row{
     width: 45%;
     margin: 5px auto;
     background-color: white;
-    border: 2px solid #111;
-    color: black;
+    border: none;
+    color: #2c2d3d;
     padding: 2px;
     outline: none;
+}
+
+.form-group .row input:focus{
+    border: 1px solid #494ca2;
 }
 
 .form-group .single-row input{
@@ -48,10 +76,14 @@ form .row{
     width: 95%;
     margin: 5px auto;
     background-color: white;
-    border: 2px solid #111;
-    color: black;
+    border: none;
+    color: #2c2d3d;
     padding: 2px;
     outline: none;
+}
+
+form-group .single-row input:focus{
+    border: 1px solid #494ca2;
 }
 
 .submit-button{
@@ -59,14 +91,18 @@ form .row{
     height: 60px;
     text-align: center;
     border:none;
-    background-color: black;
+    background-color: #494ca2;
+    color: #e3e7f1;
     font-weight: 300;
     font-size: 20px;
-    color: white;
     outline: none;
     cursor: pointer;
     margin: 5px 0;
 
+}
+
+.submit-button:hover{
+    background-color: #252750;
 }
 
 
@@ -79,5 +115,150 @@ form .row{
 .login-link p a{
     text-decoration: none;
     outline: none;
-    color: rgb(5, 5, 5);
+    color: rgb(76, 70, 102);
 }
+
+.login-link p a:hover{
+    color: #252750;
+}
+
+.footer{
+    color: #e3e7f1;
+}
+
+
+/** Media queries for responsiveness **/
+@media screen and (max-width: 540px) {
+    .signup-form-container{
+        min-width: 300px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #eeeeee;
+        padding: 5px;
+    
+    }
+
+    form{
+        margin: auto;
+    }
+    
+    form .row{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    .form-group .row input{
+        height: 40px;
+        width: 80%;
+        margin: 5px auto;
+        background-color: white;
+        border: none;
+        color: #2c2d3d;
+        padding: 2px;
+        outline: none;
+    }
+    
+    .form-group .row input:focus{
+        border: 1px solid #494ca2;
+    }
+    
+    .form-group .single-row input{
+        height: 40px;
+        width: 80%;
+        margin: 5px auto;
+        background-color: white;
+        border: none;
+        color: #2c2d3d;
+        padding: 2px;
+        outline: none;
+    }
+    
+    form-group .single-row input:focus{
+        border: 1px solid #494ca2;
+    }
+    
+    .submit-button{
+        width: 80%;
+        height: 60px;
+        text-align: center;
+        border:none;
+        background-color: #494ca2;
+        color: #e3e7f1;
+        font-weight: 300;
+        font-size: 20px;
+        outline: none;
+        cursor: pointer;
+        margin: 5px 0;
+    
+    }
+  }
+
+  @media screen and (max-width: 530px) {
+    .signup-form-container{
+        width: 300px;
+        margin: auto;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #eeeeee;
+        padding: 5px;
+    
+    }
+
+    form{
+        margin: auto;
+    }
+    
+    form .row{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    .form-group .row input{
+        height: 40px;
+        width: 80%;
+        margin: 5px auto;
+        background-color: white;
+        border: none;
+        color: #2c2d3d;
+        padding: 2px;
+        outline: none;
+    }
+    
+    .form-group .row input:focus{
+        border: 1px solid #494ca2;
+    }
+    
+    .form-group .single-row input{
+        height: 40px;
+        width: 80%;
+        margin: 5px auto;
+        background-color: white;
+        border: none;
+        color: #2c2d3d;
+        padding: 2px;
+        outline: none;
+    }
+    
+    form-group .single-row input:focus{
+        border: 1px solid #494ca2;
+    }
+    
+    .submit-button{
+        width: 80%;
+        height: 60px;
+        text-align: center;
+        border:none;
+        background-color: #494ca2;
+        color: #e3e7f1;
+        font-weight: 300;
+        font-size: 20px;
+        outline: none;
+        cursor: pointer;
+        margin: 5px 0;
+    
+    }
+  }
+
