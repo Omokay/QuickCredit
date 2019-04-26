@@ -6,7 +6,7 @@ html, body{
     margin: 0;
     padding: 0;
     width: 100%;
-    color: #252750;
+    color: var(--primary);
 }
 
 :root{
@@ -24,7 +24,7 @@ html, body{
 #navbar{
     height: 50px;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: var(--primary);
