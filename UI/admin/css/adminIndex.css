@@ -27,17 +27,35 @@ h2{
 }
 
 #dashboard-nav{
-    height: 50px;
-    padding: 15px 18px;
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
     background-color: var(--highlight);
+}
+
+#dashboard-nav ul li{
+    display: inline;
+    list-style-type: none;
+    padding: 20px;
     
 }
 
-nav ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.dashboard-nav-brand{
+    font-weight: bold;
 }
+
+span{
+    color: var(--orangee);
+}
+
+#dashboard-nav ul li a{
+    color: var(--white);
+}
+
 
 .admin-dashboard{
     width: 80%;

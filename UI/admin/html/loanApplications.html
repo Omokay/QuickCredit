@@ -16,8 +16,12 @@
 
 <body>
     <header>
-        <nav>
+        <nav id="dashboard-nav">
             <ul>
+                <li class="dashboard-nav-brand"><a href="../html/adminIndex.html">Quick&nbsp;<span>Credit Dashboard</span></a></li>
+                <li class="dashboard-items"><a href="../html/registeredUsers.html">All users</a></li>
+                <li class="dashboard-items"><a href="../html/loanApplications.html">Loan Applications</a></li>
+                <li class="dashboard-items"><a href="../html/currentLoans.html">All Loans</a></li>
 
             </ul>
         </nav>
@@ -37,7 +41,7 @@
                             <th class="loan-table-header">STATUS</th>
                             <th class="loan-table-header">PURPOSE</th>
                             <th class="loan-table-header">REPAYMENT PRICE</th>
-                            <th class="loan-table-header" colspan="2">ACTION</th>
+                            <th class="loan-table-header" colspan="3">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,8 +52,10 @@
                             <td id="loan-item-4" class="loan-item">Not verified</td>
                             <td id="loan-item-5" class="loan-item">Travel</td>
                             <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-2" class="loan-item"><button id="suspend-user-button">Suspend</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="delete-user-button">Delete</button></td>
+                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
+                                        id="loan-more-details">More</button></a></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
                         </tr>
 
                         <tr class="loan-application-list">
@@ -59,8 +65,10 @@
                             <td id="loan-item-4" class="loan-item">Not verified</td>
                             <td id="loan-item-5" class="loan-item">Travel</td>
                             <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-2" class="loan-item"><button id="suspend-user-button">Suspend</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="delete-user-button">Delete</button></td>
+                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
+                                        id="loan-more-details">More</button></a></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
                         </tr>
 
                         <tr class="loan-application-list">
@@ -70,10 +78,50 @@
                             <td id="loan-item-4" class="loan-item">Not verified</td>
                             <td id="loan-item-5" class="loan-item">Travel</td>
                             <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-2" class="loan-item"><button id="suspend-user-button">Suspend</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="delete-user-button">Delete</button></td>
+                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
+                                        id="loan-more-details">More</button></a></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
                         </tr>
 
+                        <tr class="loan-application-list">
+                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
+                            <td id="loan-item-2" class="loan-item">6736</td>
+                            <td id="loan-item-3" class="loan-item">50,000</td>
+                            <td id="loan-item-4" class="loan-item">Not verified</td>
+                            <td id="loan-item-5" class="loan-item">Travel</td>
+                            <td id="loan-item-6" class="loan-item">53,000</td>
+                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
+                                        id="loan-more-details">More</button></a></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
+                        </tr>
+
+                        <tr class="loan-application-list">
+                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
+                            <td id="loan-item-2" class="loan-item">6736</td>
+                            <td id="loan-item-3" class="loan-item">50,000</td>
+                            <td id="loan-item-4" class="loan-item">Not verified</td>
+                            <td id="loan-item-5" class="loan-item">Travel</td>
+                            <td id="loan-item-6" class="loan-item">53,000</td>
+                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
+                                        id="loan-more-details">More</button></a></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
+                        </tr>
+
+                        <tr class="loan-application-list">
+                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
+                            <td id="loan-item-2" class="loan-item">6736</td>
+                            <td id="loan-item-3" class="loan-item">50,000</td>
+                            <td id="loan-item-4" class="loan-item">Not verified</td>
+                            <td id="loan-item-5" class="loan-item">Travel</td>
+                            <td id="loan-item-6" class="loan-item">53,000</td>
+                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
+                                        id="loan-more-details">More</button></a></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
+                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
+                        </tr>
 
                     </tbody>
                 </table>
