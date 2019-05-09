@@ -7,14 +7,14 @@ class Authenticate {
     return bcryptjs.compareSync(inputPassword, savedPassword);
   }
 
-  /** static generateToken(payload) {
+  static generateToken(payload) {
     return jsonwebtoken.sign({ payload }, config.get('jwtPrivateKey'), { expires: '10d' });
-  } */
+  }
 
-  /** static verifyToken(token) {
+  static verifyToken(token) {
     return jsonwebtoken.verify(token, process.env.SECRETKEY);
-  } */
+  }
 }
 
 
-module.export = Authenticate;
+module.exports = Authenticate;
