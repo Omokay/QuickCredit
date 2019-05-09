@@ -20,12 +20,11 @@ const signinHandler = (req, res) => {
   const user = users.findIndex(useremail => useremail.email === email);
 
   if (user !== -1) {
-    const checkPassword = Authenticate
-      .checkPassword(
-        user.password,
-        password,
-      );
-    if (checkPassword) {
+    const checkPass = Authenticate.checkPassword(
+      password,
+      users[user].password,
+    );
+    if (checkPass) {
       return res.status(200)
         .json({
           message: 'You have logged in successfully',
