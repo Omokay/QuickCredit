@@ -2,6 +2,9 @@
   "name": "quickcredit",
   "version": "1.0.0",
   "description": "Quick-Credit is an online lending platform that provides short term soft loans to individuals.",
+  "engines": {
+    "node": "10.3.0"
+  },
   "scripts": {
     "lint": "eslint",
     "start": "nodemon --exec babel-node server/app.js",
