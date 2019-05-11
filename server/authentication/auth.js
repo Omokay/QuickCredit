@@ -8,11 +8,15 @@ class Authenticate {
   }
 
   static generateToken(payload) {
-    return jsonwebtoken.sign({ payload }, config.get('jwtPrivateKey'), { expires: '10d' });
+    return jsonwebtoken.sign({ payload }, config.get('jwtPrivateKey'));
   }
 
   static verifyToken(token) {
     return jsonwebtoken.verify(token, process.env.SECRETKEY);
+  }
+
+  static hashPassword(password) {
+    return bcryptjs.hashSync(password, 10);
   }
 }
 
