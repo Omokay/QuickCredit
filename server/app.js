@@ -1,7 +1,7 @@
 import config from 'config';
 import express from 'express';
 import parser from 'body-parser';
-import routes from './server/api-routes/user-routes';
+import routes from './api-routes/user-routes';
 
 const app = express();
 
