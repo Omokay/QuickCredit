@@ -11,13 +11,14 @@ class Validation {
         .lowercase()
         .required(),
       firstName: joi.string()
-        .min(2)
+        .min(3)
         .required(),
       lastName: joi.string()
-        .min(2)
+        .min(3)
         .required(),
       password: joi.string()
-        .regex(/^[a-zA-Z0-9]{6,30}$/)
+        .min(7)
+        .max(30)
         .required(),
       address: joi.string()
         .min(10)
@@ -34,7 +35,8 @@ class Validation {
         .trim()
         .lowercase()
         .required(),
-      password: joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
+      password: joi.string()
+        .required(),
     };
     return joi.validate(info, schema);
   }
