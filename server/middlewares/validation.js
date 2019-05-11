@@ -1,5 +1,5 @@
+/* eslint lines-between-class-members: ["error", "always"]*/
 import joi from '@hapi/joi';
-
 
 class Validation {
   // validate for user signup
@@ -41,8 +41,8 @@ class Validation {
     return joi.validate(info, schema);
   }
 
-  static validateUserVerify(info){
-    const schema = {
+  static validateUserVerify(info) {
+    const schema = { 
       email: joi.string()
         .email()
         .required(),
@@ -51,6 +51,7 @@ class Validation {
     };
     return joi.validate(info, schema);
   }
+
 }
 
 module.exports = Validation;
