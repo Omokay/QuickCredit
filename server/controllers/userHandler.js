@@ -65,6 +65,8 @@ class userHandler {
   }
 
   static signinHandler(req, res) {
+    const { email, password } = req.body;
+
     // validate inputs for user signin
     const { error } = Validate.signinValidation(req.body);
     if (error) {
@@ -74,8 +76,6 @@ class userHandler {
           error: error.details[0].message,
         });
     }
-
-    const { email, password } = req.body;
 
     // Check if email is in userStructure
     const user = users.findIndex(useremail => useremail.email === email);
