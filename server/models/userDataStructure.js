@@ -24,13 +24,13 @@ const userStructure = [
   {
     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjozLCJlbWFpbCI6ImNodWt1MzMub21va2VAZ21haWwuY29tIiwic3RhdHVzIjoidW52ZXJpZmllZCIsImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNTU3NjA5MzczfQ.hbNPjlndl0V1F6cYHzKlmEgrShP1mLVOrErEIGD7KVQ',
     id: 3,
-    email: 'chuku33.omoke@gmail.com',
+    email: 'admin@quickcredit.com',
     firstName: 'weje',
     lastName: 'emma',
     password: '$2a$10$7OSLY82d/x3F3WhSGY6IKuYc5lK9kLQ4dfcsOrGACpfnpftEMo2C.',
     address: 'Ikorodu road lagos',
-    status: 'unverified',
-    isAdmin: false,
+    status: 'verified',
+    isAdmin: true,
   },
   {
     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo0LCJlbWFpbCI6ImNodWsub21va2VAZ21haWwuY29tIiwic3RhdHVzIjoidW52ZXJpZmllZCIsImlzQWRtaW4iOmZhbHNlfSwiaWF0IjoxNTU3NjEwMjUyfQ.FTuyjjA-w_aWU7s9eHJu9YdpPGJZ1LMCHVdb-LbDvz0',
@@ -41,7 +41,7 @@ const userStructure = [
     password: '$2a$10$hN2NnS8.6fWlo7YI62ABE.sD4q.10L2tHSUaEC.SXj8N05Xm59Ddq',
     address: 'Ikorodu road lagos',
     status: 'unverified',
-    isAdmin: false,
+    isAdmin: true,
   },
 ];
 
