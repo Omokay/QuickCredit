@@ -1,6 +1,5 @@
 import joi from '@hapi/joi';
 
-
 class Validation {
   // validate for user signup
   static signupValidation(info) {
@@ -27,7 +26,6 @@ class Validation {
     return joi.validate(info, schema);
   }
 
-  // validate for user login
   static signinValidation(info) {
     const schema = {
       email: joi.string()
@@ -37,6 +35,14 @@ class Validation {
         .required(),
       password: joi.string()
         .required(),
+    };
+    return joi.validate(info, schema);
+  }
+
+  static validateUserVerify(info) {
+    const schema = {
+      email: joi.string().email().required(),
+      status: joi.string().valid('unverified', 'verified').required(),
     };
     return joi.validate(info, schema);
   }

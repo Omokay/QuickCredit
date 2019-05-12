@@ -1,13 +1,17 @@
+import config from 'config';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import jsonwebtoken from 'jsonwebtoken';
 import app from '../app';
+
+
+const verifiedRoutes = '/api/v1/users/:user-email/verify';
 
 chai.should();
 chai.use(chaiHttp);
 
 
 // Unit test for requests made to API Endpoints for signin
-
 describe('Signin Test', () => {
   describe('POST Request to /api/v1/auth/signin', () => {
     it('Should sign registered user in', (done) => {
@@ -330,5 +334,64 @@ describe('Signup Test', () => {
           });
       });
     });
+  });
+});
+
+
+// Unit test for requests made to Enpoint for marking user as verified
+describe('Marking a user as verified', () => {
+  const credentials = {
+    email: 'admin@quickcredit.com',
+    status: 'verified',
+  };
+  const token = jsonwebtoken.sign(credentials, config.get('jwtPrivateKey'), { expiresIn: '8min' });
+  it('Should allow admin to successfully verify a user', (done) => {
+    chai.request(app)
+      .patch(verifiedRoutes)
+      .set('Authorization', token)
+      .send({
+        email: 'admin@quickcredit.com',
+        status: 'verified',
+      })
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.body.should.be.a('object');
+        res.body.should.have.property('status');
+        done();
+      });
+  });
+  
+
+  it('Should not verify a user when the email provided is not an admin', (done) => {
+    chai.request(app)
+      .patch(verifiedRoutes)
+      .set('Authorization', token)
+      .send({
+        email: 'odogwu@man.com',
+        status: 'verified',
+      })
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.an('object');
+        res.body.should.have.property('status');
+        res.body.should.have.property('error');
+        done();
+      });
+  });
+
+  it('Should not verify a user with invalid inputs', (done) => {
+    chai.request(app)
+      .patch(verifiedRoutes)
+      .set('Authorization', token)
+      .send({
+        email: 'helloeld',
+        status: 'verified',
+      })
+      .end((err, res) => {
+        res.should.have.status(401);
+        res.should.be.an('object');
+        res.body.should.have.property('error');
+        done();
+      });
   });
 });
