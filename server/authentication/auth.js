@@ -12,7 +12,7 @@ class Authenticate {
   }
 
   static verifyToken(token) {
-    return jsonwebtoken.verify(token, process.env.SECRETKEY);
+    return jsonwebtoken.verify(token, config.get('jwtPrivateKey'));
   }
 
   static hashPassword(password) {
@@ -22,8 +22,8 @@ class Authenticate {
   static userAuthorize(req, res, next) {
     try {
       const payload = req.headers.authorization.split(' ')[1];
-      req.user = Authenticate.verifyToken(payload, config.get('jwtPrivateKey'));
-      if (req.user.email !== 'admin@quickcredit.com') {
+      req.user = Authenticate.verifyToken(payload);
+      if (req.user.payload.email !== 'omoke@admin.com') {
         return res.status(401)
           .json({
             status: 403,
