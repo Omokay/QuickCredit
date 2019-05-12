@@ -18,6 +18,9 @@ class adminHandler {
       error: 'There is no loan',
     });
   }
+  /* This method also handles both current loans and repaid loans
+  by checking if there is any query parameter present
+  */
 
   static getCurrentLoans(req, res) {
     const { status, repaid } = req.query;
