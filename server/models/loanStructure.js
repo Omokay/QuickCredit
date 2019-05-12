@@ -2,8 +2,8 @@ const loans = [
   {
     id: 1,
     user: 'chuk.omoke@gmail.com',
-    createdOn: '17/03/2019 2:30am',
-    status: 'pending',
+    createdOn: new Date(),
+    status: 'approved',
     repaid: false,
     tenor: 12,
     amount: 500000,
@@ -14,9 +14,9 @@ const loans = [
   {
     id: 2,
     user: 'chuk2.omoke@gmail.com',
-    createdOn: '17/03/2019 2:30am',
-    status: 'pending',
-    repaid: false,
+    createdOn: new Date(),
+    status: 'approved',
+    repaid: true,
     tenor: 12,
     amount: 500000,
     paymentInstallment: 40000,
@@ -26,8 +26,8 @@ const loans = [
   {
     id: 3,
     user: 'chuk3.omoke@gmail.com',
-    createdOn: '17/03/2019 2:30am',
-    status: 'pending',
+    createdOn: new Date(),
+    status: 'rejected',
     repaid: false,
     tenor: 12,
     amount: 500000,
@@ -38,4 +38,3 @@ const loans = [
 ];
 
 export default loans;
-
