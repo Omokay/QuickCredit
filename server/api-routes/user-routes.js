@@ -14,7 +14,7 @@ router.patch('/users/:email/verify', Auth.userAuthorize, userHandler.getVerified
 // Admin Get specific loan
 router.get('/loans/:id', Auth.userAuthorize, adminHandler.getSpecificLoan);
 
-/** This route will handle admin getting all loan and
+/** This route will handle admin getting all loan (GET /loans )and
  *  Admin getting current loans in the case where query params {status:approved & repaid:false} 
  * (GET /loans?status=approved&repaid=false)
  *  Also repaid loans in the case where {status:approved & repaid:true} is passed as query params

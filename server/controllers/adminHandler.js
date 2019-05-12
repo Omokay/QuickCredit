@@ -31,6 +31,9 @@ class adminHandler {
           data: filtered,
         });
     }
+    /** In the event that the route comes without
+     * query parameters, then this will return all loans
+     */
     return res.status(200)
       .json({
         status: 200,
