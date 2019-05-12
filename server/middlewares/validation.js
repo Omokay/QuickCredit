@@ -42,7 +42,6 @@ class Validation {
   static validateUserVerify(info) {
     const schema = {
       email: joi.string().email().required(),
-      status: joi.string().valid('unverified', 'verified').required(),
     };
     return joi.validate(info, schema);
   }

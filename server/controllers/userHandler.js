@@ -60,7 +60,7 @@ class userHandler {
 
     return res.status(201).json({
       status: 201,
-      userDetails,
+      data: userDetails,
     });
   }
 
@@ -94,7 +94,6 @@ class userHandler {
           });
       }
     }
-    // In the case where inputs are incorrect
     return res.status(400)
       .json({
         status: 400,
@@ -104,37 +103,32 @@ class userHandler {
 
   // Mark a user as verified
   static getVerified(req, res) {
-    // mark a user as verified or unverified
-    const { error } = Validate.validateUserVerify(req.body);
+    // Mark a user as verified
+    const { error } = Validate.validateUserVerify(req.params);
     if (error) {
       res.status(400).json({
         status: 400,
         error: error.details[0].message,
       });
+    } else {
+      const { email } = req.params;
+      // Check if the index of such user exits
+      const user = users.filter(adminUser => adminUser.email === email);
+      if (user) {
+        user.status = 'verified';
+        res.status(200)
+          .json({
+            status: 200,
+            data: user,
+          });
+      } else {
+        res.status(404)
+          .json({
+            status: 404,
+            error: 'Email does not exist',
+          });
+      }
     }
-    const { email } = req.params;
-    // Check if the index of such user exits
-    const userIndex = users.findIndex(user => user.email === email);
-    if (userIndex !== -1) {
-      // If this is true, then the user with this index exists.
-      const newUser = {
-        id: users[userIndex].id,
-        email: users[userIndex].email,
-        firstName: users[userIndex].firstName,
-        lastName: users[userIndex].lastName,
-        address: users[userIndex].address,
-        status: 'verified',
-        isAdmin: users[userIndex].isAdmin,
-      };
-      return res.status(200).json({
-        status: 200,
-        data: newUser,
-      });
-    }
-    return res.status(404).json({
-      status: 404,
-      error: 'User does not exist',
-    });
   }
 }
 

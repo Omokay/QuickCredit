@@ -18,6 +18,25 @@ class adminHandler {
       error: 'There is no loan',
     });
   }
+
+  static getCurrentLoans(req, res) {
+    const { status, repaid } = req.query;
+    if ((status !== undefined) && (repaid !== undefined)) {
+      const filtered = loans.filter(
+        loan => loan.status === status && loan.repaid === JSON.parse(repaid),
+      );
+      return res.status(200)
+        .json({
+          status: 200,
+          data: filtered,
+        });
+    }
+    return res.status(200)
+      .json({
+        status: 200,
+        data: loans,
+      });
+  }
 }
 
 module.exports = adminHandler;
