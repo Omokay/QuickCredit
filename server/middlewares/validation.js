@@ -1,4 +1,3 @@
-/* eslint lines-between-class-members: ["error", "always"]*/
 import joi from '@hapi/joi';
 
 class Validation {
@@ -27,7 +26,6 @@ class Validation {
     return joi.validate(info, schema);
   }
 
-  // validate for user login
   static signinValidation(info) {
     const schema = {
       email: joi.string()
@@ -42,16 +40,12 @@ class Validation {
   }
 
   static validateUserVerify(info) {
-    const schema = { 
-      email: joi.string()
-        .email()
-        .required(),
-        status: joi.string()
-         .valid('unverified', 'verified').required(),
+    const schema = {
+      email: joi.string().email().required(),
+      status: joi.string().valid('unverified', 'verified').required(),
     };
     return joi.validate(info, schema);
   }
-
 }
 
 module.exports = Validation;
