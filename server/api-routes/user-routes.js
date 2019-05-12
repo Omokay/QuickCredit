@@ -1,5 +1,6 @@
 import express from 'express';
 import userHandler from '../controllers/userHandler';
+import adminHandler from '../controllers/adminHandler';
 import Auth from '../authentication/auth';
 
 const router = express.Router();
@@ -10,6 +11,8 @@ router.post('/auth/signup', userHandler.signupHandler);
 router.post('/auth/signin', userHandler.signinHandler);
 // Make post request to verify user
 router.patch('/users/:user-email/verify', Auth.userAuthorize, userHandler.getVerified);
+// Get specific loan
+router.get('/loans/:id', Auth.userAuthorize, adminHandler.getSpecificLoan);
 
 
 module.exports = router;
