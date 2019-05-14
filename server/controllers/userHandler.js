@@ -1,4 +1,5 @@
 import users from '../models/userDataStructure';
+import repayments from '../models/repaymentStructure';
 import Validate from '../middlewares/validation';
 import Authenticate from '../authentication/auth';
 
@@ -129,6 +130,24 @@ class userHandler {
           });
       }
     }
+  }
+
+  // User get repayment loans
+  static getRepaymentLoans(req, res) {
+    const { id } = req.params;
+    const repayment = repayments.filter(repLoan => repLoan.loanId === id);
+    if (repayment) {
+      return res.status(200)
+        .json({
+          status: 200,
+          data: repayment,
+        });
+    }
+    return res.status(404)
+      .json({
+        status: 404,
+        error: 'Repayment not found',
+      });
   }
 }
 
