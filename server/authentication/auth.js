@@ -19,10 +19,10 @@ class Authenticate {
     return bcryptjs.hashSync(password, 10);
   }
 
-  static userAuthorize(req, res, next) {
+  static adminAuthorize(req, res, next) {
     try {
-      const payload = req.headers.authorization.split(' ')[1];
-      req.user = Authenticate.verifyToken(payload);
+      const token = req.headers.authorization.split(' ')[1];
+      req.user = Authenticate.verifyToken(token);
       if (req.user.payload.email !== 'omoke@admin.com') {
         return res.status(401)
           .json({
@@ -36,6 +36,28 @@ class Authenticate {
         .json({
           status: 401,
           error: 'Invalid token!',
+        });
+    }
+  }
+
+  static userAuthorize(req, res, next) {
+    try {
+      const token = req.headers.authorization.split(' ')[1];
+      const decoded = Authenticate.verifyToken(token);
+      const userEmail = decoded.payload.email;
+      if (userEmail.endsWith('gmail.com')) {
+        return res.status(403)
+          .json({
+            status: 403,
+            error: 'Unauthorized access',
+          });
+      }
+      return next();
+    } catch (error) {
+      return res.status(401)
+        .json({
+          status: 401,
+          error: 'Invalid token',
         });
     }
   }
