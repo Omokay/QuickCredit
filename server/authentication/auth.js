@@ -44,8 +44,9 @@ class Authenticate {
     try {
       const token = req.headers.authorization.split(' ')[1];
       const decoded = Authenticate.verifyToken(token);
-      const userEmail = decoded.payload.email;
-      if (userEmail.endsWith('gmail.com')) {
+      req.user = decoded.payload;
+
+      if (!req.user.id) {
         return res.status(403)
           .json({
             status: 403,

@@ -45,6 +45,32 @@ class Validation {
     };
     return joi.validate(info, schema);
   }
+
+  static validateCreateLoan(info) {
+    const schema = {
+      firstName: joi.string()
+        .min(3)
+        .max(30)
+        .required(),
+      lastName: joi.string()
+        .min(3)
+        .max(30)
+        .required(),
+      email: joi.string()
+        .email()
+        .lowercase()
+        .required(),
+      tenor: joi.number()
+        .min(1)
+        .max(12)
+        .required(),
+      amount: joi.number()
+        .min(10000)
+        .max(1000000)
+        .required(),
+    };
+    return joi.validate(info, schema);
+  }
 }
 
 module.exports = Validation;

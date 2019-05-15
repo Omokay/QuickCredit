@@ -1,4 +1,5 @@
 import users from '../models/userDataStructure';
+import loans from '../models/loanStructure';
 import repayments from '../models/repaymentStructure';
 import Validate from '../middlewares/validation';
 import Authenticate from '../authentication/auth';
@@ -100,6 +101,51 @@ class userHandler {
         status: 400,
         error: 'Incorrect email or password',
       });
+  }
+
+  // Apply for new loan
+  static applyLoan(req, res) {
+    const { email, amount, tenor } = req.body;
+
+    const { error } = Validate.validateCreateLoan(req.body);
+    if (error) {
+      return res.status(400)
+        .json({
+          status: 400,
+          error: error.details[0].message,
+        });
+    }
+    // Check if user has an open loan already
+    if (loans.find(loan => loan.user === email)) {
+      return res.status(409)
+        .json({
+          status: 409,
+          error: 'You cannot apply at this time',
+        });
+    }
+    const loanId = loans.length + 1;
+    const interest = 0.05 * amount;
+    const paymentInstallment = (amount + interest) / tenor;
+    const balance = amount - 0;
+
+    const loanInfo = {
+      id: loanId,
+      user: email,
+      createdOn: new Date(),
+      status: 'pending',
+      repaid: false,
+      tenor,
+      amount,
+      paymentInstallment,
+      balance,
+      interest,
+    };
+    loans.push(loanInfo);
+
+    return res.send({
+      status: 201,
+      data: loanInfo,
+    });
   }
 
   // Mark a user as verified
