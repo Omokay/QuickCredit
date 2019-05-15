@@ -2,8 +2,18 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Lora', serif;
-    text-align: center;
     color: black;
+}
+
+:root {
+    --primary: #14152e;
+    --background: #afb6c0;
+    --subbackground: #f3f9fb;
+    --neutral: #ececec;
+    --highlight: orange;
+    --secondary: #494ca2;
+    --inputfocus: #dadddf;
+    --buttonfocus: #fdfdfd;
 }
 
 #overlay {
@@ -25,10 +35,7 @@ url('../files/images/cover-signup.jpg');
 
 .signup-view{
     width: 100%;
-    height: 100vh;
-    padding-top: 8%;
-    position: relative;
-    
+    padding-top: 12%;
 }
 
 .signup-form-container{
@@ -37,8 +44,7 @@ url('../files/images/cover-signup.jpg');
     text-align: center;
     border-radius: 10px;
     background-color: #eeeeee;
-    padding: 10px;
-
+    padding: 10px 20px;
 }
 
 h1{
@@ -61,9 +67,8 @@ form .row{
     width: 45%;
     margin: 5px auto;
     background-color: white;
-    border: none;
     color: #2c2d3d;
-    padding: 2px;
+    padding: 2px 8px;
     outline: none;
 }
 
@@ -76,9 +81,8 @@ form .row{
     width: 95%;
     margin: 5px auto;
     background-color: white;
-    border: none;
     color: #2c2d3d;
-    padding: 2px;
+    padding: 2px 8px;
     outline: none;
 }
 
@@ -87,7 +91,7 @@ form-group .single-row input:focus{
 }
 
 .submit-button{
-    width: 96%;
+    width: 98%;
     height: 60px;
     text-align: center;
     border:none;
@@ -124,8 +128,27 @@ form-group .single-row input:focus{
 
 .footer{
     color: #e3e7f1;
+    text-align: center;
 }
 
+.nav {
+    position: fixed;
+    right: 60px;
+    top: 50px;
+}
+
+.nav a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:visited,
+.nav a:active {
+    color: #fff;
+    text-decoration: none;
+}
 
 /** Media queries for responsiveness **/
 @media screen and (max-width: 540px) {
@@ -154,9 +177,8 @@ form-group .single-row input:focus{
         width: 80%;
         margin: 5px auto;
         background-color: white;
-        border: none;
         color: #2c2d3d;
-        padding: 2px;
+        padding: 2px 8px;
         outline: none;
     }
     
@@ -169,9 +191,8 @@ form-group .single-row input:focus{
         width: 80%;
         margin: 5px auto;
         background-color: white;
-        border: none;
         color: #2c2d3d;
-        padding: 2px;
+        padding: 2px 8px;
         outline: none;
     }
     
@@ -180,7 +201,7 @@ form-group .single-row input:focus{
     }
     
     .submit-button{
-        width: 80%;
+        width: 82%;
         height: 60px;
         text-align: center;
         border:none;
@@ -224,7 +245,7 @@ form-group .single-row input:focus{
         background-color: white;
         border: none;
         color: #2c2d3d;
-        padding: 2px;
+        padding: 2px 8px;
         outline: none;
     }
     
@@ -239,7 +260,7 @@ form-group .single-row input:focus{
         background-color: white;
         border: none;
         color: #2c2d3d;
-        padding: 2px;
+        padding: 2px 8px;
         outline: none;
     }
     
@@ -248,7 +269,7 @@ form-group .single-row input:focus{
     }
     
     .submit-button{
-        width: 81%;
+        width: 85%;
         height: 60px;
         text-align: center;
         border:none;
@@ -259,7 +280,7 @@ form-group .single-row input:focus{
         outline: none;
         cursor: pointer;
         margin: 0;
-        padding: 5px;
+        padding: 5px 8px;
     
     }
 
@@ -274,3 +295,61 @@ form-group .single-row input:focus{
     }
   }
 
+#home-navbar {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary);
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+
+}
+
+.navbutton a {
+    color: var(--background);
+}
+
+.nav-brand a {
+    font-family: 'Gugi', cursive !important;
+    font-size: 20px;
+    color: #fff;
+}
+
+span {
+    color: var(--highlight);
+}
+
+nav ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+nav ul li {
+    padding: 20px;
+    color: var(--background);
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px;
+}
+
+nav ul .nav-items a {
+    text-decoration: none;
+    outline: none;
+    color: var(--neutral);
+}
+
+a {
+    text-decoration: none;
+}
+
+nav ul .nav-items a:hover {
+    border-bottom: 2px solid var(--neutral);
+}
