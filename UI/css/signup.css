@@ -32,9 +32,69 @@ url('../files/images/cover-signup.jpg');
     z-index: -1; 
   }
 
+  #home-navbar {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary);
+    padding: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+
+}
+
+.navbutton a {
+    color: var(--background);
+}
+
+.nav-brand a {
+    font-family: 'Gugi', cursive !important;
+    font-size: 20px;
+    color: #fff;
+}
+
+span {
+    color: var(--highlight);
+}
+
+nav ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+nav ul li {
+    padding: 20px;
+    color: var(--background);
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px;
+}
+
+nav ul .nav-items a {
+    text-decoration: none;
+    outline: none;
+    color: var(--neutral);
+}
+
+a {
+    text-decoration: none;
+}
+
+nav ul .nav-items a:hover {
+    border-bottom: 2px solid var(--neutral);
+}
+
 
 .signup-view{
     width: 100%;
+    height: auto;
     padding-top: 12%;
 }
 
@@ -152,6 +212,12 @@ form-group .single-row input:focus{
 
 /** Media queries for responsiveness **/
 @media screen and (max-width: 540px) {
+
+    .signup-view{
+        width: 100%;
+        height: auto;
+        padding-top: 12%;
+    }
     .signup-form-container{
         min-width: 300px;
         margin: auto;
@@ -217,14 +283,22 @@ form-group .single-row input:focus{
   }
 
   @media screen and (max-width: 530px) {
+      
+    .signup-view{
+        width: 100%;
+        height: auto;
+        padding-top: 5%;
+        margin: 0;
+    }
     .signup-form-container{
         width: 300px;
         margin: auto;
+        height: auto;
         text-align: center;
         border-radius: 10px;
         background: none;
         border: 1px solid #494ca2;
-        padding: 5px;
+        padding: 12% 5px;
     
     }
 
@@ -295,61 +369,3 @@ form-group .single-row input:focus{
     }
   }
 
-#home-navbar {
-    height: 50px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--primary);
-    padding: 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    overflow: hidden;
-}
-
-.right {
-    float: right;
-
-}
-
-.navbutton a {
-    color: var(--background);
-}
-
-.nav-brand a {
-    font-family: 'Gugi', cursive !important;
-    font-size: 20px;
-    color: #fff;
-}
-
-span {
-    color: var(--highlight);
-}
-
-nav ul {
-    list-style-type: none;
-    text-decoration: none;
-}
-
-nav ul li {
-    padding: 20px;
-    color: var(--background);
-    display: inline;
-    text-decoration: none;
-    text-align: center;
-    margin: 5px;
-}
-
-nav ul .nav-items a {
-    text-decoration: none;
-    outline: none;
-    color: var(--neutral);
-}
-
-a {
-    text-decoration: none;
-}
-
-nav ul .nav-items a:hover {
-    border-bottom: 2px solid var(--neutral);
-}

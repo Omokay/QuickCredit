@@ -34,6 +34,64 @@ url('../files/images/cover.jpg');
     z-index: -1; 
   }
 
+  #home-navbar {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary);
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+
+}
+
+.navbutton a {
+    color: var(--background);
+}
+
+.nav-brand a {
+    font-family: 'Gugi', cursive;
+    font-size: 20px;
+    color: #fff;
+}
+
+span {
+    color: var(--highlight);
+}
+
+nav ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+nav ul li {
+    padding: 20px;
+    color: var(--background);
+    display: inline;
+    text-decoration: none;
+    text-align: center;
+    margin: 5px;
+}
+
+nav ul .nav-items a {
+    text-decoration: none;
+    outline: none;
+    color: var(--neutral);
+}
+
+a {
+    text-decoration: none;
+}
+
+nav ul .nav-items a:hover {
+    border-bottom: 2px solid var(--neutral);
+}
+
 .signin-view{
     width: 100%;
     padding-top: 12%;
@@ -147,61 +205,3 @@ p #admin-login-link{
     }
 }
 
-#home-navbar {
-    height: 50px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--primary);
-    padding: 20px 0;
-    font-family: 'Montserrat', sans-serif;
-    overflow: hidden;
-}
-
-.right {
-    float: right;
-
-}
-
-.navbutton a {
-    color: var(--background);
-}
-
-.nav-brand {
-    font-family: 'Gugi', cursive;
-    font-size: 20px;
-    color: #fff;
-}
-
-span {
-    color: var(--highlight);
-}
-
-nav ul {
-    list-style-type: none;
-    text-decoration: none;
-}
-
-nav ul li {
-    padding: 20px;
-    color: var(--background);
-    display: inline;
-    text-decoration: none;
-    text-align: center;
-    margin: 5px;
-}
-
-nav ul .nav-items a {
-    text-decoration: none;
-    outline: none;
-    color: var(--neutral);
-}
-
-a {
-    text-decoration: none;
-}
-
-nav ul .nav-items a:hover {
-    border-bottom: 2px solid var(--neutral);
-}
