@@ -71,6 +71,18 @@ class Validation {
     };
     return joi.validate(info, schema);
   }
+
+  static validateLoanApprovals(info) {
+    const schema = {
+      email: joi.string()
+        .email()
+        .required(),
+      status: joi.string()
+        .valid('approved', 'rejected')
+        .required(),
+    };
+    return joi.validate(info, schema);
+  }
 }
 
 module.exports = Validation;

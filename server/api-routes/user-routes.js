@@ -28,4 +28,7 @@ router.post('/loans', Auth.userAuthorize, userHandler.applyLoan);
 // Get request to user repayment loan history
 router.get('/loans/:id/repayments', Auth.userAuthorize, userHandler.getRepaymentLoans);
 
+// Admin approve or reject loan
+router.patch('/loans/:id', Auth.adminAuthorize, adminHandler.loanApprovals);
+
 module.exports = router;
