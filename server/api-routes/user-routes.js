@@ -22,6 +22,9 @@ router.get('/loans/:id', Auth.userAuthorize, adminHandler.getSpecificLoan);
  */
 router.get('/loans', Auth.adminAuthorize, adminHandler.getCurrentLoans);
 
+// Make post requests to apply loan API Endpoint
+router.post('/loans', Auth.userAuthorize, userHandler.applyLoan);
+
 // Get request to user repayment loan history
 router.get('/loans/:id/repayments', Auth.userAuthorize, userHandler.getRepaymentLoans);
 
