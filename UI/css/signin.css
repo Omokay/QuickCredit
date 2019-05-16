@@ -41,7 +41,7 @@ url('../files/images/cover.jpg');
     top: 0;
     left: 0;
     background-color: var(--primary);
-    padding: 20px 0;
+    padding: 10px 0;
     overflow: hidden;
 }
 
@@ -52,6 +52,10 @@ url('../files/images/cover.jpg');
 
 .navbutton a {
     color: var(--background);
+}
+
+.navbutton a:hover{
+    color: #585974;
 }
 
 .nav-brand a {
@@ -66,14 +70,12 @@ span {
 
 nav ul {
     list-style-type: none;
-    text-decoration: none;
 }
 
 nav ul li {
     padding: 20px;
     color: var(--background);
     display: inline;
-    text-decoration: none;
     text-align: center;
     margin: 5px;
 }
@@ -86,10 +88,6 @@ nav ul .nav-items a {
 
 a {
     text-decoration: none;
-}
-
-nav ul .nav-items a:hover {
-    border-bottom: 2px solid var(--neutral);
 }
 
 .signin-view{
