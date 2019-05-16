@@ -36,7 +36,6 @@ class userHandler {
     // Initialise status and user type (client or admin) for new user
     const status = 'unverified';
     const isAdmin = false;
-
     const id = users.length + 1;
 
     // Generate token for new user
@@ -62,7 +61,16 @@ class userHandler {
 
     return res.status(201).json({
       status: 201,
-      data: userDetails,
+      data: {
+        token,
+        id,
+        email,
+        firstName,
+        lastName,
+        address,
+        status,
+        isAdmin,
+      },
     });
   }
 
@@ -92,7 +100,16 @@ class userHandler {
           .json({
             message: 'You have logged in successfully',
             status: 200,
-            data: users[user],
+            data: {
+              token: users[user].token,
+              id: users[user].id,
+              email: users[user].id,
+              firstName: users[user].firstName,
+              lastName: users[user].lastName,
+              address: users[user].address,
+              status: users[user].status,
+              isAdmin: users[user].isAdmin,
+            },
           });
       }
     }
@@ -153,20 +170,29 @@ class userHandler {
     // Mark a user as verified
     const { error } = Validate.validateUserVerify(req.params);
     if (error) {
-      res.status(400).json({
+      res.status(400).send({
         status: 400,
         error: error.details[0].message,
       });
     } else {
       const { email } = req.params;
       // Check if the index of such user exits
-      const user = users.filter(adminUser => adminUser.email === email);
+      const user = users.filter(userEmail => userEmail.email === email);
       if (user) {
         user.status = 'verified';
         res.status(200)
           .json({
             status: 200,
-            data: user,
+            data: {
+              token: users[user].token,
+              id: users[user].id,
+              email: users[user].id,
+              firstName: users[user].firstName,
+              lastName: users[user].lastName,
+              address: users[user].address,
+              status: users[user].status,
+              isAdmin: users[user].isAdmin,
+            },
           });
       } else {
         res.status(404)
