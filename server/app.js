@@ -14,6 +14,19 @@ if (!config.get('jwtPrivateKey')) {
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
+// base route
+app.get('/', (req, res) => res.status(200)
+  .send({
+    status: 200,
+    message: 'Welcome to Quick Credit',
+  }));
+// all non-existent routes
+app.all('*', (req, res) => res.status(404)
+  .send({
+    status: 404,
+    error: 'Page not found',
+  }));
+
 // use User routes
 app.use('/api/v1', routes);
 
