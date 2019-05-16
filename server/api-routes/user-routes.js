@@ -31,4 +31,7 @@ router.get('/loans/:id/repayments', Auth.userAuthorize, userHandler.getRepayment
 // Admin approve or reject loan
 router.patch('/loans/:id', Auth.adminAuthorize, adminHandler.loanApprovals);
 
+// Admin post repayment transaction in favor or client
+router.post('/loans/:id', Auth.adminAuthorize, adminHandler.postRepayment);
+
 module.exports = router;
