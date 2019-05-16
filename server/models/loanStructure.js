@@ -1,0 +1,40 @@
+const loans = [
+  {
+    id: 1,
+    user: 'chuk.omoke@gmail.com',
+    createdOn: new Date(),
+    status: 'approved',
+    repaid: false,
+    tenor: 12,
+    amount: 500000,
+    paymentInstallment: 40000,
+    balance: 500000.00,
+    interest: 10000.00,
+  },
+  {
+    id: 2,
+    user: 'chuk2.omoke@gmail.com',
+    createdOn: new Date(),
+    status: 'approved',
+    repaid: true,
+    tenor: 12,
+    amount: 500000,
+    paymentInstallment: 40000,
+    balance: 500000.00,
+    interest: 10000.00,
+  },
+  {
+    id: 3,
+    user: 'chuk3.omoke@gmail.com',
+    createdOn: new Date(),
+    status: 'rejected',
+    repaid: false,
+    tenor: 12,
+    amount: 500000,
+    paymentInstallment: 40000,
+    balance: 500000.00,
+    interest: 10000.00,
+  },
+];
+
+export default loans;
