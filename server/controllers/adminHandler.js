@@ -1,5 +1,7 @@
 import users from '../models/userDataStructure';
 import loans from '../models/loanStructure';
+import repayment from '../models/repaymentStructure';
+// import Validate from '../middlewares/validation';
 
 class adminHandler {
   static getSpecificLoan(req, res) {
@@ -45,7 +47,7 @@ class adminHandler {
     // Check if loan to be approved exits
     if (!loanData) {
       return res.status(404)
-        .json({
+        .send({
           status: 404,
           error: 'This loan does not exist',
         });
@@ -57,7 +59,7 @@ class adminHandler {
       // Check status of loan
       if (loanData.status === 'approved') {
         return res.status(409)
-          .json({
+          .send({
             status: 409,
             error: 'This loan has already been approved',
           });
@@ -79,9 +81,79 @@ class adminHandler {
         });
     }
     return res.status(400)
-      .json({
+      .send({
         status: 400,
         error: 'This user is not verified',
+      });
+  }
+
+  static postRepayment(req, res) {
+    // const { error } = Validate.validateId(req.params.id);
+    // if (error) {
+    //   return res.status(400).json({
+    //     status: 400,
+    //     error: error.details[0].message,
+    //   });
+    // }
+    const { id } = req.params;
+    const loan = loans.find(userLoan => userLoan.id === id);
+    const paidAmount = parseInt(req.body.paidAmount, 10);
+
+    if (loan) {
+      if (loan.status === 'approved') {
+        if (loan.balance <= paidAmount) {
+          loan.balance -= paidAmount;
+          const newLoanData = {
+            id: repayment.length + 1,
+            loanId: loan.id,
+            createdOn: new Date(),
+            amount: loan.amount,
+            monthlyInstallments: loan.paymentInstallment,
+            balance: loan.data,
+          };
+          repayment.push(newLoanData);
+          return res.status(201)
+            .json({
+              status: 201,
+              data: newLoanData,
+            });
+        }
+
+        if (loan.balance > paidAmount) {
+          return res.status(400)
+            .send({
+              status: 400,
+              error: 'Amount paid is more than clients debt',
+            });
+        }
+
+        if (loan.balance === paidAmount) {
+          const newLoanData = {
+            id: repayment.length + 1,
+            loanId: loan.id,
+            createdOn: new Date(),
+            amount: loan.amount,
+            monthlyInstallments: loan.paymentInstallment,
+            balance: loan.data,
+          };
+          return res.status(201)
+            .json({
+              status: 201,
+              message: 'Repayment is complete',
+              data: newLoanData,
+            });
+        }
+      }
+      return res.status(400)
+        .send({
+          status: 400,
+          error: 'This loan is not approved yet',
+        });
+    }
+    return res.status(404)
+      .send({
+        status: 404,
+        error: 'Loan does not exist',
       });
   }
 }

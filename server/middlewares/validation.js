@@ -83,6 +83,14 @@ class Validation {
     };
     return joi.validate(info, schema);
   }
+
+  static validateId(info) {
+    const schema = {
+      loanId: joi.number()
+        .required(),
+    };
+    return joi.validate(info, schema);
+  }
 }
 
 module.exports = Validation;
