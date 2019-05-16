@@ -31,7 +31,7 @@ app.all('*', (req, res) => res.status(404)
 app.use('/api/v1', routes);
 
 
-app.listen(process.env.port || 4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log('now listening on port 4000');
 });
 
