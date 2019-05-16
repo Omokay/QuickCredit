@@ -54,7 +54,8 @@ class adminHandler {
     }
     const userData = users.find(user => user.email === loanData.user);
     // Check if user with loan is verified
-    console.log(userData.status);
+    console.log(userData);
+    console.log(loanData);
     if (userData.status === 'verified') {
       // Check status of loan
       if (loanData.status === 'approved') {
