@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint",
-    "build": "babel API --out-dir build",
+    "build": "babel server --out-dir build",
     "start": "node build/app.js",
     "dev-start": "nodemon --exec babel-node server/app.js",
     "heroku-postbuild": "npm run build",
