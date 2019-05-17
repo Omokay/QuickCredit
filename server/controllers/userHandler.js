@@ -57,6 +57,7 @@ class userHandler {
       status,
       isAdmin,
     };
+
     users.push(userDetails);
 
     return res.status(201).json({
@@ -88,27 +89,38 @@ class userHandler {
     }
 
     // Check if email is in userStructure
-    const user = users.findIndex(useremail => useremail.email === email);
+    const user = users.find(useremail => useremail.email === email);
+    if (user) {
+      const {
+        id,
+        firstName,
+        lastName,
+        isAdmin,
+      } = user;
+      console.log(user);
 
-    if (user !== -1) {
       const checkPass = Authenticate.checkPassword(
         password,
-        users[user].password,
+        user.password,
       );
       if (checkPass) {
+        const token = Authenticate.generateToken({
+          id,
+          email,
+          isAdmin,
+        });
+
         return res.status(200)
           .json({
             message: 'You have logged in successfully',
             status: 200,
             data: {
-              token: users[user].token,
-              id: users[user].id,
-              email: users[user].id,
-              firstName: users[user].firstName,
-              lastName: users[user].lastName,
-              address: users[user].address,
-              status: users[user].status,
-              isAdmin: users[user].isAdmin,
+              token,
+              id,
+              email: user.email,
+              firstName,
+              lastName,
+              isAdmin,
             },
           });
       }
@@ -207,7 +219,7 @@ class userHandler {
   // User get repayment loans
   static getRepaymentLoans(req, res) {
     const { id } = req.params;
-    const repayment = repayments.filter(repLoan => repLoan.loanId === id);
+    const repayment = repayments.find(repLoan => repLoan.loanId === id);
     if (repayment) {
       return res.status(200)
         .json({

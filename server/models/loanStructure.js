@@ -1,7 +1,7 @@
 const loans = [
   {
     id: 1,
-    user: 'chuku21.omoke@gmail.com',
+    user: 'chuku.omoke@gmail.com',
     createdOn: new Date(),
     status: 'rejected',
     repaid: false,
@@ -11,29 +11,18 @@ const loans = [
     balance: 500000.00,
     interest: 10000.00,
   },
+
   {
     id: 2,
-    user: 'chuku22.omoke@gmail.com',
-    createdOn: new Date(),
+    user: 'david.omoke@gmail.com',
+    createdOn: '2019-05-17T15:53:08.716Z',
     status: 'approved',
     repaid: false,
-    tenor: 12,
-    amount: 500000,
-    paymentInstallment: 40000,
-    balance: 500000.00,
-    interest: 10000.00,
-  },
-  {
-    id: 3,
-    user: 'chuku23.omoke@gmail.com',
-    createdOn: new Date(),
-    status: 'approved',
-    repaid: true,
-    tenor: 12,
-    amount: 500000,
-    paymentInstallment: 500000,
-    balance: 500000.00,
-    interest: 10000.00,
+    tenor: '10',
+    amount: '50000',
+    paymentInstallment: 50000250,
+    balance: 50000,
+    interest: 2500,
   },
 ];
 
