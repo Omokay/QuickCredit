@@ -1,4 +1,3 @@
-import config from 'config';
 import express from 'express';
 import parser from 'body-parser';
 import routes from './api-routes/user-routes';

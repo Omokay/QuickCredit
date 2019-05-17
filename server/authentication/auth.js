@@ -12,13 +12,13 @@ class Authenticate {
 
   static generateToken(payload) {
     return jsonwebtoken.sign({ payload }, secretKey, {
-      '24d'
+      expiresIn:'24d'
     });
   }
 
   static verifyToken(token) {
     return jsonwebtoken.verify(token, secretKey, {
-      '24d'
+      expiresIn:'24d'
     });
   }
 
