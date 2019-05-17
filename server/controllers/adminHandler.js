@@ -1,7 +1,7 @@
 import users from '../models/userDataStructure';
 import loans from '../models/loanStructure';
 import repayment from '../models/repaymentStructure';
-// import Validate from '../middlewares/validation';
+import Validate from '../middlewares/validation';
 
 class adminHandler {
   static getSpecificLoan(req, res) {
@@ -54,8 +54,6 @@ class adminHandler {
     }
     const userData = users.find(user => user.email === loanData.user);
     // Check if user with loan is verified
-    console.log(userData);
-    console.log(loanData);
     if (userData.status === 'verified') {
       // Check status of loan
       if (loanData.status === 'approved') {
@@ -89,16 +87,17 @@ class adminHandler {
   }
 
   static postRepayment(req, res) {
-    // const { error } = Validate.validateId(req.params.id);
-    // if (error) {
-    //   return res.status(400).json({
-    //     status: 400,
-    //     error: error.details[0].message,
-    //   });
-    // }
+    const { error } = Validate.validateId(req.params.id);
+    if (error) {
+      return res.status(400).json({
+        status: 400,
+        error: error.details[0].message,
+      });
+    }
     const { id } = req.params;
-    const loan = loans.find(userLoan => userLoan.id === id);
+    const loan = loans.find(userLoan => userLoan.id === parseInt(id, 10));
     const paidAmount = parseInt(req.body.paidAmount, 10);
+
 
     if (loan) {
       if (loan.status === 'approved') {
