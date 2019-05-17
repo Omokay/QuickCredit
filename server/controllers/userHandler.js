@@ -97,7 +97,6 @@ class userHandler {
         lastName,
         isAdmin,
       } = user;
-      console.log(user);
 
       const checkPass = Authenticate.checkPassword(
         password,
@@ -189,21 +188,21 @@ class userHandler {
     } else {
       const { email } = req.params;
       // Check if the index of such user exits
-      const user = users.filter(userEmail => userEmail.email === email);
+      const user = users.find(userEmail => userEmail.email === email);
       if (user) {
         user.status = 'verified';
         res.status(200)
           .json({
             status: 200,
             data: {
-              token: users[user].token,
-              id: users[user].id,
-              email: users[user].id,
-              firstName: users[user].firstName,
-              lastName: users[user].lastName,
-              address: users[user].address,
-              status: users[user].status,
-              isAdmin: users[user].isAdmin,
+              token: user.token,
+              id: user.id,
+              email: user.id,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              address: user.address,
+              status: user.status,
+              isAdmin: user.isAdmin,
             },
           });
       } else {
@@ -219,7 +218,14 @@ class userHandler {
   // User get repayment loans
   static getRepaymentLoans(req, res) {
     const { id } = req.params;
-    const repayment = repayments.find(repLoan => repLoan.loanId === id);
+    const { error } = Validate.validateId(req.params.id);
+    if (error) {
+      return res.status(400).json({
+        status: 400,
+        error: error.details[0].message,
+      });
+    }
+    const repayment = repayments.find(repLoan => repLoan.loanId === parseInt(id, 10));
     if (repayment) {
       return res.status(200)
         .json({

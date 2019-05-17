@@ -19,7 +19,7 @@ const userStructure = [
     lastName: 'Chuku',
     password: '$2a$10$tC1KSb0/WzPFpZzkTEv4euJtysAzp5WlixpxsSuJvQt89elJ42KXm',
     address: 'Epic Tower Andela',
-    status: 'unverified',
+    status: 'verified',
     isAdmin: false,
   },
   {

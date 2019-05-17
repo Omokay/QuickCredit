@@ -31,12 +31,12 @@ router.get('/loans', Auth.adminAuthorize, adminHandler.getCurrentLoans);
 router.post('/loans', Auth.userAuthorize, userHandler.applyLoan);
 
 // Get request to user repayment loan history
-router.get('/loans/:id/repayments', Auth.userAuthorize, userHandler.getRepaymentLoans);
+router.get('/loans/:loanId/repayments', Auth.userAuthorize, userHandler.getRepaymentLoans);
 
 // Admin approve or reject loan
 router.patch('/loans/:id', Auth.adminAuthorize, adminHandler.loanApprovals);
 
 // Admin post repayment transaction in favor or client
-router.post('/loans/:id', Auth.adminAuthorize, adminHandler.postRepayment);
+router.post('/loans/:loanId/repayment', Auth.adminAuthorize, adminHandler.postRepayment);
 
 module.exports = router;
