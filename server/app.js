@@ -8,6 +8,9 @@ const app = express();
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
+// use User routes
+app.use('/api/v1', routes);
+
 // base route
 app.get('/', (req, res) => res.status(200)
   .send({
@@ -20,9 +23,6 @@ app.all('*', (req, res) => res.status(404)
     status: 404,
     error: 'Page not found',
   }));
-
-// use User routes
-app.use('/api/v1', routes);
 
 
 app.listen(process.env.PORT || 4000, () => {

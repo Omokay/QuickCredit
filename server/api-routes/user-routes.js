@@ -5,6 +5,11 @@ import Auth from '../authentication/auth';
 
 const router = express.Router();
 
+router.get('/', (req, res) => res.status(200)
+  .send({
+    status: 200,
+    message: 'tst Welcome to Quick Credit',
+  }));
 // Make post requests to signup API Endpoints
 router.post('/auth/signup', userHandler.signupHandler);
 // Make post requests to signin API Endpoints
