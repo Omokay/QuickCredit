@@ -8,7 +8,6 @@
   "scripts": {
     "lint": "eslint",
     "start": "nodemon --exec babel-node server/app.js",
-    "heroku-postbuild": "npm run build",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test": "mocha --require @babel/register ./server/test/**.test.js || true"
   },
