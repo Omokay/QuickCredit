@@ -1,14 +1,8 @@
-import config from 'config';
 import express from 'express';
 import parser from 'body-parser';
 import routes from './api-routes/user-routes';
 
 const app = express();
-
-if (!config.get('jwtPrivateKey')) {
-  console.error('FATAL ERROR: jwtPrivateKey is not defined');
-  process.exit(1);
-}
 
 // allows access to body of the request
 app.use(parser.json());

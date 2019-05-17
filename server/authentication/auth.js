@@ -1,6 +1,9 @@
 import bcryptjs from 'bcryptjs';
 import jsonwebtoken from 'jsonwebtoken';
-import config from 'config';
+import dotenv from 'dotenv';
+
+dotenv.config();
+const { MySecretKey } = process.env;
 
 class Authenticate {
   static checkPassword(inputPassword, savedPassword) {
@@ -8,11 +11,11 @@ class Authenticate {
   }
 
   static generateToken(payload) {
-    return jsonwebtoken.sign({ payload }, config.get('jwtPrivateKey'));
+    return jsonwebtoken.sign({ payload }, MySecretKey, { expiresIn: '24d'});
   }
 
   static verifyToken(token) {
-    return jsonwebtoken.verify(token, config.get('jwtPrivateKey'));
+    return jsonwebtoken.verify(token, MySecretKey, { expiresIn: '24d'});
   }
 
   static hashPassword(password) {
