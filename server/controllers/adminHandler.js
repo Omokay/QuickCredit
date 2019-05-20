@@ -13,7 +13,7 @@ class adminHandler {
     if (loanDetails) {
       return res.status(200).send({
         status: 200,
-        loanDetails: [loanDetails],
+        data: [loanDetails],
       });
     }
     return res.status(404).send({

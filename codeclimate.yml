@@ -1,0 +1,34 @@
+plugins:
+  duplication:
+    enabled: true
+checks:
+  argument-count:
+    config:
+      threshold: 4
+  complex-logic:
+    config:
+      threshold: 4
+  file-lines:
+    config:
+      threshold: 500
+  method-complexity:
+    config:
+      threshold: 6
+  method-count:
+    config:
+      threshold: 20
+  method-lines:
+    config:
+      threshold: 70
+  nested-control-flow:
+    config:
+      threshold: 10
+  return-statements:
+    config:
+      threshold: 4
+exclude_patterns:
+  - node_modules/
+  - server/test/
+  - server/app/
+  - dist/
+  - ui
