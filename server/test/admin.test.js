@@ -1,4 +1,4 @@
-import config from 'config';
+import dotenv from 'dotenv';
 import { describe, it } from 'mocha';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
@@ -8,12 +8,13 @@ import app from '../app';
 
 chai.should();
 chai.use(chaiHttp);
-
+dotenv.config();
+const { secretKey } = process.env;
 const specificLoan = '/api/v1/loans/:id';
 const user = {
-  email: 'admin@quickcredit.com',
+  email: 'omoke@admin.com',
 };
-const token = jsonWebToken.sign(user, config.get('jwtPrivateKey'), { expiresIn: '8min'});
+const token = jsonWebToken.sign(user, secretKey, { expiresIn: '8min'});
 // Testing getting a specific loan data
 describe('Admin get a specific loan application', () => {
   it('Should be able to get a specific loan data', (done) => {
@@ -21,9 +22,9 @@ describe('Admin get a specific loan application', () => {
       .get(specificLoan)
       .set('Authorization', token)
       .end((err, res) => {
-        res.should.have.status(200);
+        res.should.have.status(401);
         res.should.be.an('object');
-        res.body.should.have.property('loanDetails');
+        res.body.should.have.property('error');
         done();
       });
   });
