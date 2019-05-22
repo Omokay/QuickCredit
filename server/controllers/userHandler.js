@@ -3,6 +3,8 @@ import loans from '../models/loanStructure';
 import repayments from '../models/repaymentStructure';
 import Validate from '../middlewares/validation';
 import Authenticate from '../authentication/auth';
+import db from '../models/migrations/dbConnect';
+import Query from '../models/queries';
 
 
 class userHandler {
@@ -20,59 +22,39 @@ class userHandler {
       email,
       firstName,
       lastName,
-      password,
       address,
     } = req.body;
 
     // check if new user email is already in use
-    const createuser = users.find(user => user.email === email);
-    if (createuser) {
+    const createuser = db.query(Query.userQuery, [email]);
+
+    console.log(createuser, 'CREATE USR HERE >>>>>>.....');
+    if (createuser.rowCount > 0) {
       return res.status(409).json({
         status: 409,
         error: 'This email is already taken',
       });
     }
 
-    // Initialise status and user type (client or admin) for new user
-    const status = 'unverified';
-    const isAdmin = false;
-    const id = users.length + 1;
+    const password = Authenticate.hashPassword(req.body.password);
+    const inputs = [firstName, lastName, email, password, address];
+
+    const userDetails = db.query(createuser, inputs);
+    const user = userDetails.rows[0];
 
     // Generate token for new user
     const token = Authenticate.generateToken({
-      id,
+      id: user.id,
       email,
-      status,
-      isAdmin,
+      isAdmin: user.isAdmin,
     });
 
-    const userDetails = {
-      token,
-      id,
-      email,
-      firstName,
-      lastName,
-      password: Authenticate.hashPassword(password),
-      address,
-      status,
-      isAdmin,
-    };
-
-    users.push(userDetails);
-
-    return res.status(201).json({
-      status: 201,
-      data: {
-        token,
-        id,
-        email,
-        firstName,
-        lastName,
-        address,
-        status,
-        isAdmin,
-      },
-    });
+    return res
+      .header('Authorization', token)
+      .status(201).json({
+        status: 201,
+        data: [user],
+      });
   }
 
   static signinHandler(req, res) {
@@ -89,37 +71,35 @@ class userHandler {
     }
 
     // Check if email is in userStructure
-    const user = users.find(useremail => useremail.email === email);
-    if (user) {
-      const {
-        id,
-        firstName,
-        lastName,
-        isAdmin,
-      } = user;
-
+    const user = db.query(Query.userQuery, [email]);
+    if (user.rowCount > 0) {
+      const userAccount = user.rows[0];
       const checkPass = Authenticate.checkPassword(
         password,
-        user.password,
+        userAccount.password,
       );
+
       if (checkPass) {
         const token = Authenticate.generateToken({
-          id,
+          id: userAccount.id,
           email,
-          isAdmin,
+          isAdmin: userAccount.isAdmin,
         });
 
-        return res.status(200)
+        return res
+          .header('Authorization', token)
+          .status(200)
           .json({
             message: 'You have logged in successfully',
             status: 200,
             data: {
               token,
-              id,
-              email: user.email,
-              firstName,
-              lastName,
-              isAdmin,
+              id: userAccount.id,
+              email: userAccount.email,
+              firstName: userAccount.firstName,
+              lastName: userAccount.lastName,
+              status: userAccount.status,
+              isAdmin: userAccount.isAdmin,
             },
           });
       }
@@ -143,36 +123,37 @@ class userHandler {
           error: error.details[0].message,
         });
     }
+
     // Check if user has an open loan already
-    if (loans.find(loan => loan.user === email)) {
+    const user = db.query(Query.userEmail, [email]);
+    if (user.rowCount > 0) {
       return res.status(409)
         .json({
           status: 409,
           error: 'You cannot apply at this time',
         });
     }
-    const loanId = loans.length + 1;
     const interest = 0.05 * amount;
     const paymentInstallment = (amount + interest) / tenor;
     const balance = amount - 0;
 
     const loanInfo = {
-      id: loanId,
-      user: email,
-      createdOn: new Date(),
-      status: 'pending',
-      repaid: false,
-      tenor,
-      amount,
-      paymentInstallment,
-      balance,
-      interest,
+
     };
     loans.push(loanInfo);
 
     return res.send({
       status: 201,
-      data: loanInfo,
+      data: {
+        id: user.rows[0].id,
+        user: email,
+        createdOn: new Date(),
+        tenor,
+        amount,
+        paymentInstallment,
+        balance,
+        interest,
+      },
     });
   }
 
