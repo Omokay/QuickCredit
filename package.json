@@ -15,8 +15,10 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "showcoverage": "start ./coverage/index.html",
-    "migration": "babel-node server/models/migrations/dbConnect.js",
-    "seed": "babel-node server/models/seed"
+    "migrate": "babel-node ./server/models/migrations/dataTable",
+    "seed": "babel-node server/models/migrations/seed",
+    "dropTable": "babel-node server/models/migrations/dropTable",
+    "db:create": " npm run dropTable && npm run migrate "
   },
   "repository": {
     "type": "git",

@@ -1,16 +1,16 @@
-import users from '../models/userDataStructure';
-import loans from '../models/loanStructure';
-import repayments from '../models/repaymentStructure';
+// import info from '../models/userDataStructure';
+// import loans from '../models/loanStructure';
+// import repayments from '../models/repaymentStructure';
 import Validate from '../middlewares/validation';
 import Authenticate from '../authentication/auth';
-import db from '../models/migrations/dbConnect';
-import Query from '../models/queries';
+import info from '../models/migrations/userQueries';
+import loans from '../models/migrations/loanQueries';
+import repaymentData from '../models/migrations/repaymentQueries';
 
 
 class userHandler {
-  static signupHandler(req, res) {
+  static async signupHandler(req, res) {
     const { error } = Validate.signupValidation(req.body);
-
     if (error) {
       return res.status(400)
         .json({
@@ -18,49 +18,60 @@ class userHandler {
           error: error.details[0].message,
         });
     }
-    const {
-      email,
-      firstName,
-      lastName,
-      address,
-    } = req.body;
-
+    console.log(req.body);
+    const getUser = await info.getUserByEmail(req.body.email);
     // check if new user email is already in use
-    const createuser = db.query(Query.userQuery, [email]);
-
-    console.log(createuser, 'CREATE USR HERE >>>>>>.....');
-    if (createuser.rowCount > 0) {
+    if (getUser.rowCount > 0) {
       return res.status(409).json({
         status: 409,
         error: 'This email is already taken',
       });
     }
 
-    const password = Authenticate.hashPassword(req.body.password);
-    const inputs = [firstName, lastName, email, password, address];
+    const userData = await info.createUser(req.body);
 
-    const userDetails = db.query(createuser, inputs);
-    const user = userDetails.rows[0];
+    if (!userData) {
+      return res.status(500).json({
+        error: 'Cannot process request',
+      });
+    }
+
+    const user = userData.rows[0];
+    const {
+      id,
+      firstname,
+      lastname,
+      email,
+      address,
+      status,
+      isadmin,
+    } = user;
 
     // Generate token for new user
     const token = Authenticate.generateToken({
       id: user.id,
       email,
-      isAdmin: user.isAdmin,
+      isadmin: userData.rows[0].isadmin,
     });
 
     return res
       .header('Authorization', token)
       .status(201).json({
         status: 201,
-        data: [user],
+        data: {
+          token,
+          id,
+          firstname,
+          lastname,
+          email,
+          address,
+          status,
+          isadmin,
+        },
       });
   }
 
-  static signinHandler(req, res) {
-    const { email, password } = req.body;
-
-    // validate inputs for user signin
+  static async signinHandler(req, res) {
     const { error } = Validate.signinValidation(req.body);
     if (error) {
       return res.status(400)
@@ -69,52 +80,57 @@ class userHandler {
           error: error.details[0].message,
         });
     }
+    const { email, password } = req.body;
+    const user = await info.getUserByEmail(email);
+    // validate inputs for user signin
 
-    // Check if email is in userStructure
-    const user = db.query(Query.userQuery, [email]);
-    if (user.rowCount > 0) {
-      const userAccount = user.rows[0];
-      const checkPass = Authenticate.checkPassword(
-        password,
-        userAccount.password,
-      );
-
-      if (checkPass) {
-        const token = Authenticate.generateToken({
-          id: userAccount.id,
-          email,
-          isAdmin: userAccount.isAdmin,
-        });
-
-        return res
-          .header('Authorization', token)
-          .status(200)
-          .json({
-            message: 'You have logged in successfully',
-            status: 200,
-            data: {
-              token,
-              id: userAccount.id,
-              email: userAccount.email,
-              firstName: userAccount.firstName,
-              lastName: userAccount.lastName,
-              status: userAccount.status,
-              isAdmin: userAccount.isAdmin,
-            },
-          });
-      }
+    // Check if email is belongs to a valid user
+    if (user.rowCount === 0) {
+      return res.status(404).json({
+        error: 'Invalid email',
+      });
     }
-    return res.status(400)
-      .json({
-        status: 400,
+
+    const checkPass = Authenticate.checkPassword(
+      password,
+      user.rows[0].password,
+    );
+
+    if (!checkPass) {
+      return res.status(400).json({
         error: 'Incorrect email or password',
       });
+    }
+
+    const {
+      id,
+      firstname,
+      lastname,
+      status,
+      isadmin,
+    } = user.rows[0];
+
+    const token = Authenticate.generateToken({
+      id,
+      email,
+      isadmin,
+    });
+
+    return res.status(200).json({
+      data: {
+        token,
+        id,
+        email,
+        firstname,
+        lastname,
+        status,
+        isadmin,
+      },
+    });
   }
 
   // Apply for new loan
-  static applyLoan(req, res) {
-    const { email, amount, tenor } = req.body;
-
+  static async applyLoan(req, res) {
     const { error } = Validate.validateCreateLoan(req.body);
     if (error) {
       return res.status(400)
@@ -123,95 +139,141 @@ class userHandler {
           error: error.details[0].message,
         });
     }
-
-    // Check if user has an open loan already
-    const user = db.query(Query.userEmail, [email]);
-    if (user.rowCount > 0) {
-      return res.status(409)
-        .json({
-          status: 409,
-          error: 'You cannot apply at this time',
-        });
+    const { tenor, amount } = req.body;
+    const userLoan = await loans.getLoanByEmail(req.body.email);
+    const userData = await info.getUserByEmail(req.body.email);
+    if (userData.rows[0] < 1) {
+      return res.status(404).send({
+        error: 'User does not exist!',
+      });
     }
-    const interest = 0.05 * amount;
-    const paymentInstallment = (amount + interest) / tenor;
-    const balance = amount - 0;
 
-    const loanInfo = {
+    if (userData.rows[0].status !== 'verified') {
+      return res.status(401).json({
+        error: 'You need to be verified',
+      });
+    }
+    
+    if (!userLoan) {
+      return res.status(500).json({
+        error: 'Something went down',
+      });
+    }
+    if (!userLoan.rows.length || userLoan.rows[userLoan.rows.length - 1].repaid) {
+      const status = 'pending';
+      const repaid = false;
+      const interest = 0.05 * amount;
+      const paymentInstallment = ((amount + interest) / tenor);
+      const balance = paymentInstallment * tenor;
+      const { email, firstName, lastName } = userLoan.rows[0];
 
-    };
-    loans.push(loanInfo);
-
-    return res.send({
-      status: 201,
-      data: {
-        id: user.rows[0].id,
-        user: email,
-        createdOn: new Date(),
+      const loanData = {
+        email,
+        firstName,
+        lastName,
+        status,
         tenor,
         amount,
-        paymentInstallment,
         balance,
         interest,
-      },
+        paymentInstallment,
+        repaid,
+      };
+      const response = await loans.applyLoan(loanData);
+      const newLoan = response.rows[0];
+      return res.status(201).json({
+        data: {
+          ...newLoan,
+        },
+      });
+    }
+
+    return res.status(409).json({
+      error: 'Already applied for a loan',
     });
   }
 
   // Mark a user as verified
-  static getVerified(req, res) {
-    // Mark a user as verified
+  static async getVerified(req, res) {
     const { error } = Validate.validateUserVerify(req.params);
     if (error) {
       res.status(400).send({
         status: 400,
         error: error.details[0].message,
       });
-    } else {
-      const { email } = req.params;
-      // Check if the index of such user exits
-      const user = users.find(userEmail => userEmail.email === email);
-      if (user) {
-        user.status = 'verified';
-        res.status(200)
-          .json({
-            status: 200,
-            data: {
-              token: user.token,
-              id: user.id,
-              email: user.id,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              address: user.address,
-              status: user.status,
-              isAdmin: user.isAdmin,
-            },
-          });
-      } else {
-        res.status(404)
-          .json({
-            status: 404,
-            error: 'Email does not exist',
-          });
-      }
     }
+
+    const { email } = req.params;
+    // console.log(email);
+    const user = await info.getUserByEmail(email);
+
+    if (!user) {
+      return res.status(500).json({
+        error: 'Something went wrong',
+      });
+    }
+    if (user.rows[0].status === 'verified') {
+      return res.status(409).json({
+        error: 'This user already verified',
+      });
+    }
+    if (!user.rows[0]) {
+      res.status(404)
+        .json({
+          status: 404,
+          error: 'Email does not exist',
+        });
+    }
+
+    await info.userVerify(email);
+
+    const verifiedUser = await info.getUserByEmail(email);
+    const {
+      firstname, lastname, address, status,
+    } = verifiedUser.rows[0];
+
+    const data = {
+      firstname,
+      lastname,
+      email: verifiedUser[0].email,
+      address,
+      status,
+    };
+    return res.status(200)
+      .json({
+        status: 200,
+        message: 'User has been verified',
+        data,
+      });
   }
 
   // User get repayment loans
-  static getRepaymentLoans(req, res) {
-    const { id } = req.params;
-    const { error } = Validate.validateId(req.params.id);
+  static async getRepaymentLoans(req, res) {
+    const { id } = parseInt(req.params, 10);
+    const { error } = Validate.validateId(id);
     if (error) {
       return res.status(400).json({
         status: 400,
         error: error.details[0].message,
       });
     }
-    const repayment = repayments.find(repLoan => repLoan.loanId === parseInt(id, 10));
-    if (repayment) {
+    const repayment = await repaymentData.getRepaymentById(id);
+
+    // if (req.user !== userEmail.rows[0].email) {
+    //   return res.status(401).json({
+    //     error: 'Email do not match! Enter the email you registered with',
+    //   });
+    // }
+    if (repayment.rowCount === 0) {
+      return res.status(404).json({
+        error: 'You have no repayment history',
+      });
+    }
+    if (repayment.rows.length !== 0) {
       return res.status(200)
         .json({
           status: 200,
-          data: repayment,
+          data: repayment.rows,
         });
     }
     return res.status(404)
@@ -221,6 +283,4 @@ class userHandler {
       });
   }
 }
-
-
 module.exports = userHandler;
