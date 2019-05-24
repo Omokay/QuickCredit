@@ -5,6 +5,11 @@ import Auth from '../authentication/auth';
 
 const router = express.Router();
 
+router.get('/', (req, res) => res.status(200)
+  .send({
+    status: 200,
+    message: 'tst Welcome to Quick Credit',
+  }));
 // Make post requests to signup API Endpoints
 router.post('/auth/signup', userHandler.signupHandler);
 // Make post requests to signin API Endpoints
@@ -12,7 +17,7 @@ router.post('/auth/signin', userHandler.signinHandler);
 // Make post request to verify user
 router.patch('/users/:email/verify', Auth.adminAuthorize, userHandler.getVerified);
 // Admin Get specific loan
-router.get('/loans/:id', Auth.userAuthorize, adminHandler.getSpecificLoan);
+router.get('/loans/:id', Auth.adminAuthorize, adminHandler.getCurrentLoans);
 
 /** This route will handle admin getting all loan and
  *  Admin getting current loans in the case where query params {status:approved & repaid:false}
@@ -26,12 +31,12 @@ router.get('/loans', Auth.adminAuthorize, adminHandler.getCurrentLoans);
 router.post('/loans', Auth.userAuthorize, userHandler.applyLoan);
 
 // Get request to user repayment loan history
-router.get('/loans/:id/repayments', Auth.userAuthorize, userHandler.getRepaymentLoans);
+router.get('/loans/:loanId/repayments', Auth.userAuthorize, userHandler.getRepaymentLoans);
 
 // Admin approve or reject loan
 router.patch('/loans/:id', Auth.adminAuthorize, adminHandler.loanApprovals);
 
 // Admin post repayment transaction in favor or client
-router.post('/loans/:id', Auth.adminAuthorize, adminHandler.postRepayment);
+router.post('/loans/:loanId/repayment', Auth.adminAuthorize, adminHandler.postRepayment);
 
 module.exports = router;

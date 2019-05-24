@@ -1,1 +1,1 @@
-web: node app.js
+cd web:npm run start

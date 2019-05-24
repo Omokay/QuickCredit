@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dashboard | Quick Credit</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/adminStyle.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <div class="headerwelcome">Administrator</div>
+      <div class="headerlink">
+        <a href="#"><i class="fa fa-key" aria-hidden="true"></i> Log Out</a>
+      </div>
+    </header>
+    <div id="menu-icon" class="menu-icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <aside id="sidenav" class="sidenav">
+       <div class="sidenav-brand">
+         <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
+       </div>
+      <ul class="sidenav-list">
+        <li class="sidenav-list-item"><a class="active" href="./dashboard.html"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
+        <li class="sidenav-list-item"><a href="./users.html"><i class="fa fa-users" aria-hidden="true"></i> All Users</a></li>
+        <li class="sidenav-list-item"><a href="./loanApplications.html"><i class="fa fa-list" aria-hidden="true"></i> Loan Applications</a></li>
+        <li class="sidenav-list-item"><a href="./allLoans.html"><i class="fa fa-list" aria-hidden="true"></i> All Loans</a></li>
+      </ul>
+      <div id="sidenav-close-icon" class="sidenav-close-icon">
+        <i class="fa fa-times"></i>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-overview">
+        <div class="card">
+          <div class="card-icon text-white"><i class="fa fa-users" aria-hidden="true"></i></div>
+          <div class="card-info">
+            <div class="card-value">393</div>
+            <div class="card-title">Registered Users</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon text-white"><i class="fa fa-list-ul" aria-hidden="true"></i></div>
+          <div class="card-info">
+            <div class="card-value">50</div>
+            <div class="card-title">Loan Applications</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon text-white"><i class="fa fa-check-circle-o" aria-hidden="true"></i></div>
+          <div class="card-info">
+            <div class="card-value">80</div>
+            <div class="card-title">Repaid Loans</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon text-white"><i class="fa fa-times-circle-o" aria-hidden="true"></i></div>
+          <div class="card-info">
+            <div class="card-value">250</div>
+            <div class="card-title">Unpaid Loans</div>
+          </div>
+        </div>
+      </div>
+      <div class="main-overview-other">
+        <div class="main-content">
+          <div class="content-title">
+            Verify Users
+          </div>
+          <table class="table">
+            <thead>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Date Registered</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Omoke Chuku</td>
+                <td>chuku.omoke@gmail.com</td>
+                <td>No 1 Akin Adesola Road, VI</td>
+                <td>15 May 2019</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Verify</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Omoke Chuku</td>
+                <td>chuku.omoke@gmail.com</td>
+                <td>No 1 Akin Adesola Road, VI</td>
+                <td>15 May 2019</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Verify</a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Omoke Chuku</td>
+                <td>chuku.omoke@gmail.com</td>
+                <td>No 1 Akin Adesola Road, VI</td>
+                <td>15 May 2019</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Verify</a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Omoke Chuku</td>
+                <td>chuku.omoke@gmail.com</td>
+                <td>No 1 Akin Adesola Road, VI</td>
+                <td>15 May 2019</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Verify</a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Omoke Chuku</td>
+                <td>chuku.omoke@gmail.com</td>
+                <td>No 1 Akin Adesola Road, VI</td>
+                <td>15 May 2019</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Verify</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="copyright">&copy; 2019 Quick <span class="text-gold">Credit</span></div>
+    </footer>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

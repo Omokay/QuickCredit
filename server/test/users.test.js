@@ -1,11 +1,16 @@
-import config from 'config';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import jsonwebtoken from 'jsonwebtoken';
+import dotenv from 'dotenv';
 import app from '../app';
+import auth from '../authentication/auth';
 
 
-const verifiedRoutes = '/api/v1/users/:user-email/verify';
+dotenv.config();
+const { secretKey } = process.env;
+
+const email = 'chuku.omoke@gmail.com';
+const verifiedRoutes = `/api/v1/users/${email}/verify`;
 
 chai.should();
 chai.use(chaiHttp);
@@ -16,8 +21,8 @@ describe('Signin Test', () => {
   describe('POST Request to /api/v1/auth/signin', () => {
     it('Should sign registered user in', (done) => {
       const user = {
-        email: 'chuk.omoke@gmail.com',
-        password: 'password2',
+        email: 'chuku.omoke@gmail.com',
+        password: 'password',
       };
       chai
         .request(app)
@@ -112,7 +117,7 @@ describe('Signup Test', () => {
           res.should.have.status(201);
           res.should.be.an('object');
           // res.body.should.have.property('status').eql(201);
-          res.body.should.have.property('userDetails');
+          res.body.should.have.property('data');
           done();
         });
     });
@@ -120,7 +125,7 @@ describe('Signup Test', () => {
     describe('POST to signup', () => {
       it('should throw a 409 error if the email is already taken', (done) => {
         const user = {
-          email: 'chuk.omoke@gmail.com',
+          email: 'chuku.omoke@gmail.com',
           firstName: 'Omoke',
           lastName: 'Chuku',
           password: 'pijkjkhk',
@@ -341,34 +346,31 @@ describe('Signup Test', () => {
 // Unit test for requests made to Enpoint for marking user as verified
 describe('Marking a user as verified', () => {
   const credentials = {
-    email: 'admin@quickcredit.com',
-    status: 'verified',
+    email: 'omoke@admin.com',
+    isAdmin: true,
   };
-  const token = jsonwebtoken.sign(credentials, config.get('jwtPrivateKey'), { expiresIn: '8min' });
+  const token = auth.generateToken(credentials);
   it('Should allow admin to successfully verify a user', (done) => {
     chai.request(app)
       .patch(verifiedRoutes)
       .set('Authorization', token)
-      .send({
-        email: 'admin@quickcredit.com',
-        status: 'verified',
-      })
+      .send(credentials)
       .end((err, res) => {
+        console.log(res.body);
         res.should.have.status(201);
         res.body.should.be.a('object');
-        res.body.should.have.property('status');
+        res.body.should.have.property('data');
         done();
       });
   });
-  
 
   it('Should not verify a user when the email provided is not an admin', (done) => {
     chai.request(app)
       .patch(verifiedRoutes)
       .set('Authorization', token)
       .send({
-        email: 'odogwu@man.com',
-        status: 'verified',
+        email: 'omoke@admin.com',
+        password: 'password',
       })
       .end((err, res) => {
         res.should.have.status(401);
@@ -385,7 +387,7 @@ describe('Marking a user as verified', () => {
       .set('Authorization', token)
       .send({
         email: 'helloeld',
-        status: 'verified',
+        password: 'ed',
       })
       .end((err, res) => {
         res.should.have.status(401);

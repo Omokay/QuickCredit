@@ -1,133 +1,132 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Chuku Omoke">
-    <meta name="description" content="Admin should be able to view all the loan applications submitted by users on from this page">
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="../css/loan-applications.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora|Neuton" rel="stylesheet">
-
-    <title>All Post Application</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Loan Applications | Quick Credit</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/adminStyle.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        <nav id="dashboard-nav">
-            <ul>
-                <li class="dashboard-nav-brand"><a href="../html/adminIndex.html">Quick&nbsp;<span>Credit Dashboard</span></a></li>
-                <li class="dashboard-items"><a href="../html/registeredUsers.html">All users</a></li>
-                <li class="dashboard-items"><a href="../html/loanApplications.html">Loan Applications</a></li>
-                <li class="dashboard-items"><a href="../html/currentLoans.html">All Loans</a></li>
-
-            </ul>
-        </nav>
+  <div class="grid-container">
+    <header class="header">
+      <div class="headerwelcome">Administrator</div>
+      <div class="headerlink">
+        <a href="#"><i class="fa fa-key" aria-hidden="true"></i> Log Out</a>
+      </div>
     </header>
-    <main>
-        <section class="loans-application-section">
-            <div class="loans-header">
-                <h2 class="all-loans-title">Loan applications</h2><br>
-            </div>
-            <div class="all-loans">
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="loan-table-header">NAME</th>
-                            <th class="loan-table-header">LOAN ID</th>
-                            <th class="loan-table-header">AMOUNT</th>
-                            <th class="loan-table-header">STATUS</th>
-                            <th class="loan-table-header">PURPOSE</th>
-                            <th class="loan-table-header">REPAYMENT PRICE</th>
-                            <th class="loan-table-header" colspan="3">ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="loan-application-list">
-                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
-                            <td id="loan-item-2" class="loan-item">6736</td>
-                            <td id="loan-item-3" class="loan-item">50,000</td>
-                            <td id="loan-item-4" class="loan-item">Not verified</td>
-                            <td id="loan-item-5" class="loan-item">Travel</td>
-                            <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
-                                        id="loan-more-details">More</button></a></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
-                        </tr>
-
-                        <tr class="loan-application-list">
-                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
-                            <td id="loan-item-2" class="loan-item">6736</td>
-                            <td id="loan-item-3" class="loan-item">50,000</td>
-                            <td id="loan-item-4" class="loan-item">Not verified</td>
-                            <td id="loan-item-5" class="loan-item">Travel</td>
-                            <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
-                                        id="loan-more-details">More</button></a></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
-                        </tr>
-
-                        <tr class="loan-application-list">
-                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
-                            <td id="loan-item-2" class="loan-item">6736</td>
-                            <td id="loan-item-3" class="loan-item">50,000</td>
-                            <td id="loan-item-4" class="loan-item">Not verified</td>
-                            <td id="loan-item-5" class="loan-item">Travel</td>
-                            <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
-                                        id="loan-more-details">More</button></a></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
-                        </tr>
-
-                        <tr class="loan-application-list">
-                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
-                            <td id="loan-item-2" class="loan-item">6736</td>
-                            <td id="loan-item-3" class="loan-item">50,000</td>
-                            <td id="loan-item-4" class="loan-item">Not verified</td>
-                            <td id="loan-item-5" class="loan-item">Travel</td>
-                            <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
-                                        id="loan-more-details">More</button></a></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
-                        </tr>
-
-                        <tr class="loan-application-list">
-                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
-                            <td id="loan-item-2" class="loan-item">6736</td>
-                            <td id="loan-item-3" class="loan-item">50,000</td>
-                            <td id="loan-item-4" class="loan-item">Not verified</td>
-                            <td id="loan-item-5" class="loan-item">Travel</td>
-                            <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
-                                        id="loan-more-details">More</button></a></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
-                        </tr>
-
-                        <tr class="loan-application-list">
-                            <td id="loan-item-1" class="loan-item"> Ikechuku Ukpa</td>
-                            <td id="loan-item-2" class="loan-item">6736</td>
-                            <td id="loan-item-3" class="loan-item">50,000</td>
-                            <td id="loan-item-4" class="loan-item">Not verified</td>
-                            <td id="loan-item-5" class="loan-item">Travel</td>
-                            <td id="loan-item-6" class="loan-item">53,000</td>
-                            <td id="loan-item-more" class="loan-item"><a href="../html/specificLoan.html"><button type="button"
-                                        id="loan-more-details">More</button></a></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-approve-button">Approve</button></td>
-                            <td id="loan-item-2" class="loan-item"><button id="loan-reject-button">Reject</button></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <div id="menu-icon" class="menu-icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <aside id="sidenav" class="sidenav">
+       <div class="sidenav-brand">
+         <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
+       </div>
+      <ul class="sidenav-list">
+        <li class="sidenav-list-item"><a href="./dashboard.html"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
+        <li class="sidenav-list-item"><a href="./users.html"><i class="fa fa-users" aria-hidden="true"></i> All Users</a></li>
+        <li class="sidenav-list-item"><a class="active" href="./loanApplications.html"><i class="fa fa-list" aria-hidden="true"></i> Loan Applications</a></li>
+        <li class="sidenav-list-item"><a href="./allLoans.html"><i class="fa fa-list" aria-hidden="true"></i> All Loans</a></li>
+      </ul>
+      <div id="sidenav-close-icon" class="sidenav-close-icon">
+        <i class="fa fa-times"></i>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-overview-other">
+        <div class="main-content">
+          <div class="content-title">
+            Loan Applications
+          </div>
+          <table class="table">
+            <thead>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Amount</th>
+              <th>Interest</th>
+              <th>Tenor</th>
+              <th>Repayment</th>
+              <th>Installment</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Omoke Chuku</td>
+                <td>&#8358; 50,000.00</td>
+                <td>&#8358; 2,500.00</td>
+                <td>3 Months</td>
+                <td>&#8358; 52,500.00</td>
+                <td>&#8358; 17,500.00</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Approve</a>
+                  <a href="#" class="btn btn-danger">Reject</a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Omoke Chuku</td>
+                <td>&#8358; 50,000.00</td>
+                <td>&#8358; 2,500.00</td>
+                <td>3 Months</td>
+                <td>&#8358; 52,500.00</td>
+                <td>&#8358; 17,500.00</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Approve</a>
+                  <a href="#" class="btn btn-danger">Reject</a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Omoke Chuku</td>
+                <td>&#8358; 50,000.00</td>
+                <td>&#8358; 2,500.00</td>
+                <td>3 Months</td>
+                <td>&#8358; 52,500.00</td>
+                <td>&#8358; 17,500.00</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Approve</a>
+                  <a href="#" class="btn btn-danger">Reject</a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Omoke Chuku</td>
+                <td>&#8358; 50,000.00</td>
+                <td>&#8358; 2,500.00</td>
+                <td>3 Months</td>
+                <td>&#8358; 52,500.00</td>
+                <td>&#8358; 17,500.00</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Approve</a>
+                  <a href="#" class="btn btn-danger">Reject</a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Omoke Chuku</td>
+                <td>&#8358; 50,000.00</td>
+                <td>&#8358; 2,500.00</td>
+                <td>3 Months</td>
+                <td>&#8358; 52,500.00</td>
+                <td>&#8358; 17,500.00</td>
+                <td>
+                  <a href="#" class="btn btn-verify">Approve</a>
+                  <a href="#" class="btn btn-danger">Reject</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
-</body>
+    <footer class="footer">
+      <div class="copyright">&copy; 2019 Quick <span class="text-gold">Credit</span></div>
+    </footer>
+  </div>
 
+  <script src="../js/script.js"></script>
+</body>
 </html>

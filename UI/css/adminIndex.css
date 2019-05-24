@@ -5,7 +5,7 @@
     --neutral: #cbbcf6;
     --white: white;
     --orangee: rgba(248, 33, 4, 0.795);
-    --background: #ebecfd;
+    --background: #f2ebfd;
 
     --medium-button-font: 18px;
 
@@ -14,7 +14,7 @@
 
 body{
     margin: 0;
-    padding-top: 60px;
+    padding: 0;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -27,39 +27,17 @@ h2{
 }
 
 #dashboard-nav{
-    height: 60px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
+    height: 50px;
+    padding: 15px 18px;
     background-color: var(--highlight);
-}
-
-a{
-    text-decoration: none;
-}
-
-#dashboard-nav ul li{
-    display: inline;
-    list-style-type: none;
-    padding: 20px;
     
 }
 
-.dashboard-nav-brand{
-    font-weight: bold;
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
-
-span{
-    color: var(--orangee);
-}
-
-#dashboard-nav ul li a{
-    color: var(--white);
-}
-
 
 .admin-dashboard{
     width: 80%;
@@ -244,4 +222,21 @@ h4{
 
 .stats-card-1, .stats-card-2:hover{
     box-shadow: var(--shadow);
+}
+
+.pull-right{
+    float: right;
+}
+
+.clear-float{
+    clear: both;
+}
+
+.select{
+    padding:10px;
+    background-color: transparent
+}
+
+.text-orange{
+    color: var(--orangee);
 }
