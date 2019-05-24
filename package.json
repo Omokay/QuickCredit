@@ -10,7 +10,7 @@
     "start-dev": "nodemon --exec babel-node server/app.js",
     "build": "babel server --out-dir build",
     "start": "node build/app.js",
-    "heroku-postbuild": "npm run start",
+    "prestart": "npm run build",
     "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --require @babel/register mocha --exit ./server/test/**.test.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
