@@ -51,6 +51,7 @@
    + Repository: [https://github.com/Omokay/QuickCredit](https://github.com/Omokay/QuickCredit)
    + Pivotal Tracker: [https://www.pivotaltracker.com/n/projects/2326579](https://www.pivotaltracker.com/n/projects/2326579)
 ## Api Documentation
+   Swagger: [https://app.swaggerhub.com/apis/Omokay/Quick_Credit/1.0.0](https://app.swaggerhub.com/apis/Omokay/Quick_Credit/1.0.0)
 ## Licensing 
    Quick credit is under the MIT License
 ## Author
