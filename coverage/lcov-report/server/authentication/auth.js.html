@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">13.64% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/22</span>
+        <span class='fraction'>3/22</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.33% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/6</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">13.64% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/22</span>
+        <span class='fraction'>3/22</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -130,30 +130,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,7 +142,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,30 +204,30 @@ dotenv.config();
 const { secretKey } = process.env;
 &nbsp;
 class Authenticate {
-  static checkPassword(inputPassword, savedPassword) {
-    return bcryptjs.compareSync(inputPassword, savedPassword);
+<span class="fstat-no" title="function not covered" >  st</span>atic checkPassword(inputPassword, savedPassword) {
+<span class="cstat-no" title="statement not covered" >    return bcryptjs.compareSync(inputPassword, savedPassword);</span>
   }
 &nbsp;
-  static generateToken(payload) {
-    return jsonwebtoken.sign({ payload }, secretKey, {
+<span class="fstat-no" title="function not covered" >  st</span>atic generateToken(payload) {
+<span class="cstat-no" title="statement not covered" >    return jsonwebtoken.sign({ payload }, secretKey, {</span>
       expiresIn:'24d'
     });
   }
 &nbsp;
-  static verifyToken(token) {
-    return jsonwebtoken.verify(token, secretKey, {
+<span class="fstat-no" title="function not covered" >  st</span>atic verifyToken(token) {
+<span class="cstat-no" title="statement not covered" >    return jsonwebtoken.verify(token, secretKey, {</span>
       expiresIn:'24d'
     });
   }
 &nbsp;
-  static hashPassword(password) {
-    return bcryptjs.hashSync(password, 10);
+<span class="fstat-no" title="function not covered" >  st</span>atic hashPassword(password) {
+<span class="cstat-no" title="statement not covered" >    return bcryptjs.hashSync(password, 10);</span>
   }
 &nbsp;
-  static adminAuthorize(req, res, next) {
-    try {
-      const token = req.headers.authorization.split(' ')[1];
-      req.user = Authenticate.verifyToken(token);
+<span class="fstat-no" title="function not covered" >  st</span>atic adminAuthorize(req, res, next) {
+<span class="cstat-no" title="statement not covered" >    try {</span>
+      const token = <span class="cstat-no" title="statement not covered" >req.headers.authorization.split(' ')[1];</span>
+<span class="cstat-no" title="statement not covered" >      req.user = Authenticate.verifyToken(token);</span>
 <span class="cstat-no" title="statement not covered" >      if (req.user.payload.email !== 'omoke@admin.com') {</span>
 <span class="cstat-no" title="statement not covered" >        return res.status(401)</span>
           .json({
@@ -237,7 +237,7 @@ class Authenticate {
       }
 <span class="cstat-no" title="statement not covered" >      return next();</span>
     } catch {
-      return res.status(401)
+<span class="cstat-no" title="statement not covered" >      return res.status(401)</span>
         .json({
           status: 401,
           error: 'Invalid token!',
@@ -277,7 +277,7 @@ module.exports = Authenticate;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 20 2019 23:21:03 GMT+0100 (West Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 21 2019 23:57:15 GMT+0100 (West Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

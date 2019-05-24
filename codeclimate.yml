@@ -30,5 +30,6 @@ exclude_patterns:
   - node_modules/
   - server/test/
   - server/app/
+  - build/
   - dist/
   - ui

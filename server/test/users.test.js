@@ -3,6 +3,7 @@ import chaiHttp from 'chai-http';
 import jsonwebtoken from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import app from '../app';
+import auth from '../authentication/auth';
 
 
 dotenv.config();
@@ -346,21 +347,22 @@ describe('Signup Test', () => {
 describe('Marking a user as verified', () => {
   const credentials = {
     email: 'omoke@admin.com',
-    password: 'password',
+    isAdmin: true,
   };
-  const token = jsonwebtoken.sign(credentials, secretKey, { expiresIn: '8min' });
-  // it('Should allow admin to successfully verify a user', (done) => {
-  //   chai.request(app)
-  //     .patch(verifiedRoutes)
-  //     .set('Authorization', token)
-  //     .send(credentials)
-  //     .end((err, res) => {
-  //       res.should.have.status(201);
-  //       res.body.should.be.a('object');
-  //       res.body.should.have.property('data');
-  //       done();
-  //     });
-  // });
+  const token = auth.generateToken(credentials);
+  it('Should allow admin to successfully verify a user', (done) => {
+    chai.request(app)
+      .patch(verifiedRoutes)
+      .set('Authorization', token)
+      .send(credentials)
+      .end((err, res) => {
+        console.log(res.body);
+        res.should.have.status(201);
+        res.body.should.be.a('object');
+        res.body.should.have.property('data');
+        done();
+      });
+  });
 
   it('Should not verify a user when the email provided is not an admin', (done) => {
     chai.request(app)
