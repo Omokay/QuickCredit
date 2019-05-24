@@ -1,80 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Chuku Omoke">
-    <meta name="description" content="User can view history of loan repaid and pending">
-    <meta viewport="width=device-width initial-scale=1.0">
-
-    <link rel="stylesheet" type="text/css" href="../css/loanhistory.css">
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Gugi|Montserrat" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quick Credit</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <nav id="navbar">
-            <ul>
-                <li class="nav-brand">Quick&nbsp;<span>Credit</span></li>
-                <li class="nav-items"><a href="#" id="home-link-item">Home</a></li>
-                <li class="nav-items"><a href="../html/applyloan.html" id="apply-link-item">Apply for loan</a></li>
-                <li class="nav-items"><a href="../html/loanhistory.html" id="repayment-link-item">Repayment History</a></li>
-                <li class="nav-items"><a href="#" id="profile-link-item">Profile</a></li>
-                <li class="navbutton"><a href="#" id="logout-nav-button">Logout</a></li>
-            </ul>
-        </nav>
+  <div class="grid-container">
+    <header class="header">
+      <div class="headerwelcome">Welcome, Joe</div>
+      <div class="headerlink">
+        <a href="#"><i class="fa fa-key" aria-hidden="true"></i> Log Out</a>
+      </div>
     </header>
-    <main>
-        <section>
-            <div class="repayment-container">
-                <div class="repayment-title">
-                    <h2>Loan Repayment History</h2>
-                    <br>
-                    <button id="request-loan-button" type="button">Request another Loan</button>
-                </div>
-                <table class="history-table">
-                    <thead>
-                        <tr id="table-header">
-                            <th class="header-items">Loan ID</th>
-                            <th class="header-items">Loan Amount</th>
-                            <th class="header-items">Purpose</th>
-                            <th class="header-items">Issue Date</th>
-                            <th class="header-items">Loan Due Date</th>
-                            <th class="header-items">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="table-content">
-                            <td>23521</td>
-                            <td>&#8358;50,000</td>
-                            <td>Business</td>
-                            <td>17-03-2019</td>
-                            <td>17-04-2019</td>
-                            <td class="pending">Pending</td>
-                        </tr>
-                        <tr class="table-content">
-                                <td>23521</td>
-                                <td>&#8358;50,000</td>
-                                <td>Business</td>
-                                <td>17-03-2019</td>
-                                <td>17-04-2019</td>
-                                <td class="paid">Paid</td>
-                            </tr>
-                            <tr class="table-content">
-                                    <td>23521</td>
-                                    <td>&#8358;50,000</td>
-                                    <td>Business</td>
-                                    <td>17-03-2019</td>
-                                    <td>17-04-2019</td>
-                                    <td class="overdue">Overdue</td>
-                                </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <div id="menu-icon" class="menu-icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <aside id="sidenav" class="sidenav">
+      <div class="sidenav-brand">
+        <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
+      </div>
+      <ul class="sidenav-list">
+        <li class="sidenav-list-item"><a href="./dashboard.html"><i class="fa fa-dashboard"
+              aria-hidden="true"></i> Dashboard</a></li>
+        <li class="sidenav-list-item"><a href="./applyloan.html"><i class="fa fa-credit-card" aria-hidden="true"></i>
+            Apply For Loan</a></li>
+        <li class="sidenav-list-item"><a class="active" href="./loanhistory.html"><i class="fa fa-list-alt"
+              aria-hidden="true"></i>
+            Repayment History</a></li>
+        <li class="sidenav-list-item"><a href="./profile.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            Profile</a>
+        </li>
+      </ul>
+      <div id="sidenav-close-icon" class="sidenav-close-icon">
+        <i class="fa fa-times"></i>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-overview-other">
+        <div class="main-content">
+          <div class="content-title">
+            Loan Repayment History
+          </div>
+          <table class="table">
+            <thead>
+              <th>Loan ID</th>
+              <th>Loan Amount</th>
+              <th>Loan Purpose</th>
+              <th>Issue Date</th>
+              <th>Loan Due Date</th>
+              <th>Status</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>123234</td>
+                <td>&#8358; 500,000.00</td>
+                <td>Business</td>
+                <td>17/03/2019</td>
+                <td>17/04/2019</td>
+                <td>
+                  <span class="text-gold">Pending</span>
+                </td>
+              </tr>
+              <tr>
+                <td>123234</td>
+                <td>&#8358; 500,000.00</td>
+                <td>Business</td>
+                <td>17/03/2019</td>
+                <td>17/04/2019</td>
+                <td>
+                  <span class="text-gold">Pending</span>
+                </td>
+              </tr>
+              <tr>
+                <td>123234</td>
+                <td>&#8358; 500,000.00</td>
+                <td>Business</td>
+                <td>17/03/2019</td>
+                <td>17/04/2019</td>
+                <td>
+                  <span class="text-gold">Pending</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="copyright">&copy; 2019 Quick <span class="text-gold">Credit</span></div>
+    </footer>
+  </div>
+
+  <script src="../js/script.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ body{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding-top: 60px;
+    padding: 0;
     margin: 0;
     background-color: var(--background);
     font-family: 'Lora', serif;
@@ -19,59 +19,28 @@ body{
     --warning: orange;
     --body-text-font: 20px;
     --font-header: 'Neuton', serif;
-    --background: #ebecfd;
-    --shadow: 0 4px 10px 0 rgba(0,0,0,0.2);
-    --gradient: background-image: linear-gradient(to right, #C9FFBF, #FFAFBD);
+    --background: #f2ebfd;
+    --shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-#dashboard-nav{
+nav{
     height: 60px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
     background-color: var(--secondary);
-    color: var(--background);
 }
-
-a{
-    text-decoration: none;
-}
-
-#dashboard-nav ul li{
-    display: inline;
-    list-style-type: none;
-    padding: 20px;
-    
-}
-
-.dashboard-nav-brand{
-    font-weight: bold;
-}
-
-span{
-    color: var(--orangee);
-}
-
-#dashboard-nav ul li a{
-    color: var(--white);
-}
-
 
 .users-section{
     width: 80%;
     min-width: 920px;
     margin: 20px auto;
     padding: 10px;
+    box-shadow: var(--shadow);
     background-color: white;
 }
 
 .all-users-header{
     width: 100%;
     position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid var(--neutral);
 }
 
 #admin-add-user{
@@ -90,40 +59,30 @@ span{
     color: var(--orangee) !important;
     padding: 5px;
 }
-
 table{
     width: 100%;
-    border-collapse: collapse;
 }
 
-.user-list{
-    height: 80px;
-    font-size: var(--body-text-font);
-    color: var(--secondary);
-}
-
-.user-list:hover{
-    box-shadow: var(--shadow);
-}
-
-/* table tr:nth-child(even) {
+table tr:nth-child(even) {
     background-color: var(--accent);
   }
   table tr:nth-child(odd) {
-   background-color: white;
-  } */
+   background-color: var(--neutral);
+  }
   table th {
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: white;
     text-align: start;
-    letter-spacing:  2px;
+    font-family: var(--font-header);
     padding: 10px;
-    
   }
 
-  td{
-      padding: 10px;
-  }
+.user-item{
+    padding: 10px;
+    color: var(--secondary);
+    font-size: var(--body-text-font);
+
+}
 
 #delete-user-button{
     background-color: var(--danger);

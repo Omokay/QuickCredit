@@ -2,132 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Chuku Omoke">
-    <meta name="description" content="User can request for a loan on this page">
-
-    <title>Request loan</title>
-    <link rel="stylesheet" type="text/css" href="../css/applyloan.css">
-    <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quick Credit</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <nav id="navbar">
-            <ul>
-                <li class="nav-brand">Quick&nbsp;<span>Credit</span></li>
-                <li class="nav-items"><a href="#" id="home-link-item">Home</a></li>
-                <li class="nav-items"><a href="../html/applyloan.html" id="apply-link-item">Apply for loan</a></li>
-                <li class="nav-items"><a href="../html/loanhistory.html" id="repayment-link-item">Repayment History</a></li>
-                <li class="nav-items"><a href="#" id="profile-link-item">Profile</a></li>
-                <li class="navbutton"><a href="#" id="logout-nav-button">Logout</a></li>
-            </ul>
-        </nav>
-
+  <div class="grid-container">
+    <header class="header">
+      <div class="headerwelcome">Welcome, Joe</div>
+      <div class="headerlink">
+        <a href="#"><i class="fa fa-key" aria-hidden="true"></i> Log Out</a>
+      </div>
     </header>
-        <section class="personal">
-            <h1>Loan Application</h1>
-            <form>
-                <div class="card">
-                    <h3>PERSONAL</h3>
-                    <div class="input-group">
-                        <input type="text" name="first" placeholder="First Name">
-                        <input type="text" name="last" placeholder="Last Name">
-                    </div>
-                    <div class="input-row">
-                        <input type="email" name="email" placeholder="Email Address">
-                    </div>
-                    <div class="input-group">
-                        <select>
-                            <option disabled selected value>Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-
-                        <select>
-                            <option disabled selected value>Marital Status</option>
-                            <option value="single">Single</option>
-                            <option value="married">Married</option>
-                        </select>
-                    </div>
-                    <div class="input-row">
-                        <input type="datetime" name="dob" placeholder="Date of birth">
-                    </div>
-                    <div class="input-row">
-                        <input type="tel" name="number" placeholder="Phone number">
-                    </div>
+    <div id="menu-icon" class="menu-icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <aside id="sidenav" class="sidenav">
+      <div class="sidenav-brand">
+        <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
+      </div>
+      <ul class="sidenav-list">
+        <li class="sidenav-list-item"><a href="./dashboard.html"><i class="fa fa-dashboard"
+              aria-hidden="true"></i> Dashboard</a></li>
+        <li class="sidenav-list-item"><a class="active" href="./applyloan.html"><i class="fa fa-credit-card"
+              aria-hidden="true"></i> Apply For Loan</a></li>
+        <li class="sidenav-list-item"><a href="./loanhistory.html"><i class="fa fa-list-alt" aria-hidden="true"></i>
+            Repayment History</a></li>
+        <li class="sidenav-list-item"><a href="./profile.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            Profile</a>
+        </li>
+      </ul>
+      <div id="sidenav-close-icon" class="sidenav-close-icon">
+        <i class="fa fa-times"></i>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-overview-other">
+        <div class="main-content col-6">
+          <div class="content-title">
+            Apply For Loan
+          </div>
+          <form action="" method="post">
+            <div class="sub-title">
+              Loan Details
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="purpose" class="control-label">Purpose <span class="req">*</span></label>
+                <div>
+                  <select name="purpose" id="purpose" class="form-control-select">
+                    <option value="">Select Purpose</option>
+                    <option value="">Some Purpose</option>
+                    <option value="">Some New Purpose</option>
+                  </select>
                 </div>
-
-                <div class="card">
-                    <h3>RESIDENCE</h3>
-                    <div class="input-row">
-                        <input type="text" name="address" placeholder="Current Address">
-                    </div>
-                    <div class="input-row">
-                        <input type="text" name="city" placeholder="City">
-                    </div>
-                    <div class="input-row">
-                        <input type="text" name="stateor" placeholder="State of residence">
-                    </div>
-                    <div class="input-group">
-                        <select class="single">
-                            <option disabled selected value value="Residence">Residence Type</option>
-                            <option value="rented">Rented</option>
-                            <option value="owned">Owned</option>
-                            <option value="family-house">Family House</option>
-                        </select>
-                    </div>
-                    <div class="input-row">
-                        <input type="text" name="duration" placeholder="Duration of stay">
-                    </div>
+              </div>
+              <div class="col">
+                <label for="amount" class="control-label">Amount (&#8358;) <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="amount" placeholder="Enter Loan Amount" required>
                 </div>
-
-                <div class="card">
-                    <h3>EMPLOYMENT</h3>
-                    <div class="input-group">
-                        <select>
-                            <option disabled selected value>Education</option>
-                            <option value="student">Student</option>
-                            <option value="graduate">First Degree</option>
-                            <option value="postgrag">Masters</option>
-                            <option value="phd">PHD</option>
-                        </select>
-
-                        <select>
-                            <option disabled selected value>Employment Status</option>
-                            <option value="unemployed">Unemployed</option>
-                            <option value="selfemployed">Self Employed</option>
-                            <option value="employed">Employed</option>
-                        </select>
-                    </div>
-                    <div class="input-row">
-                        <input type="text" name="employer" placeholder="Employer/ Business ">
-                    </div>
-                    <div class="input-row">
-                        <input type="datetime" name="workexperience" placeholder="How long have you worked there?">
-                    </div>
-                    <div class="input-row">
-                        <input type="text" name="income" placeholder="Current Income">
-                    </div>
+              </div>
+              <div class="col">
+                <label for="tenor" class="control-label">Tenor <span class="req">*</span></label>
+                <div>
+                  <select name="tenor" id="tenor" class="form-control-select">
+                    <option value="">Select Tenor</option>
+                    <option value="">30 Days</option>
+                    <option value="">60 Days</option>
+                    <option value="">90 Days</option>
+                    <option value="">120 Days</option>
+                  </select>
                 </div>
-                <div class="card">
-                    <h3>BANK DETAILS</h3>
-                    <div class="input-group">
-                        <input type="text" name="bank-name" placeholder="Bank Name" required>
-                        <input type="text" name="account-number" placeholder="Account Number" required>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="account-name" placeholder="Name on account" required>
-                        <input type="text" name="bvn" placeholder="BVN" required>
-                    </div>
+              </div>
+            </div>
+            <div class="repay">
+              Total to be Paid: <b>&#8358; 3,000,000.00</b><br>Payment Installment: <b>&#8358; 3,000,000.00 <small>(Per month)</small></b>
+            </div>
+            <hr>
+            <div class="sub-title">
+              Bank Details
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="account_number" class="control-label">Account Number <span class="req">*</span></label>
+                <div>
+                  <input type="number" min="10" max="10" class="form-control" id="account_number" placeholder="Enter Account Number" required>
                 </div>
-                <button type="submit" class="submit-button">Request Loan</button>
-            </form>
-        </section>
-    <footer></footer>
+              </div>
+              <div class="col">
+                <label for="bank" class="control-label">Bank <span class="req">*</span></label>
+                <div>
+                  <select name="bank" id="bank" class="form-control-select">
+                    <option value="">Select Bank</option>
+                    <option value="">Access Bank PLC</option>
+                    <option value="">Zenith Bank</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col" align="right">
+                <input type="submit" class="btn btn-primary" value="Apply">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="copyright">&copy; 2019 Quick <span class="text-gold">Credit</span></div>
+    </footer>
+  </div>
+
+  <script src="../js/script.js"></script>
 </body>
 
 </html>
