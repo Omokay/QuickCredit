@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Loan Applications | Quick Credit</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>All Loans | Quick Credit</title>
   <link rel="stylesheet" type="text/css" media="screen" href="../css/adminStyle.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="grid-container">
     <header class="header">
@@ -21,14 +23,23 @@
       <i class="fa fa-bars"></i>
     </div>
     <aside id="sidenav" class="sidenav">
-       <div class="sidenav-brand">
-         <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
-       </div>
+      <div class="sidenav-brand">
+        <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
+      </div>
       <ul class="sidenav-list">
-        <li class="sidenav-list-item"><a href="./dashboard.html"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a></li>
-        <li class="sidenav-list-item"><a href="./users.html"><i class="fa fa-users" aria-hidden="true"></i> All Users</a></li>
-        <li class="sidenav-list-item"><a class="active" href="./loanApplications.html"><i class="fa fa-list" aria-hidden="true"></i> Loan Applications</a></li>
-        <li class="sidenav-list-item"><a href="./allLoans.html"><i class="fa fa-list" aria-hidden="true"></i> All Loans</a></li>
+        <li class="sidenav-list-item">
+          <a href="./dashboard.html"><i class="fa fa-dashboard" aria-hidden="true"></i> Dashboard</a>
+        </li>
+        <li class="sidenav-list-item">
+          <a href="./users.html"><i class="fa fa-users" aria-hidden="true"></i> All Users</a>
+        </li>
+        <li class="sidenav-list-item">
+          <a href="./loanApplications.html"><i class="fa fa-list" aria-hidden="true"></i> Loan
+            Applications</a>
+        </li>
+        <li class="sidenav-list-item">
+          <a class="active" href="./allLoans.html"><i class="fa fa-list" aria-hidden="true"></i> All Loans</a>
+        </li>
       </ul>
       <div id="sidenav-close-icon" class="sidenav-close-icon">
         <i class="fa fa-times"></i>
@@ -38,7 +49,18 @@
       <div class="main-overview-other">
         <div class="main-content">
           <div class="content-title">
-            Loan Applications
+            <div class="pull-left">
+              All Loans
+            </div>
+            <div class="pull-right">
+              <label for="filter" class="text-orange"><b>Filter Loans:</b></label>
+              <select name="filter" class="form-control-select" id="filter">
+                <option disabled="" selected="" value="">Select</option>
+                <option value="paid">Paid</option>
+                <option value="unpaid">Unpaid</option>
+              </select>
+            </div>
+            <div class="clearfix"></div>
           </div>
           <table class="table">
             <thead>
@@ -49,6 +71,9 @@
               <th>Tenor</th>
               <th>Repayment</th>
               <th>Installment</th>
+              <th>Status</th>
+              <th>Payment Date</th>
+              <th>Due Date</th>
               <th>Action</th>
             </thead>
             <tbody>
@@ -60,9 +85,11 @@
                 <td>3 Months</td>
                 <td>&#8358; 52,500.00</td>
                 <td>&#8358; 17,500.00</td>
+                <td>Paid</td>
+                <td>23 May 2019</td>
+                <td>23 May 2019</td>
                 <td>
-                  <a href="#" class="btn btn-verify">Approve</a>
-                  <a href="#" class="btn btn-danger">Reject</a>
+                  <a href="#" class="btn btn-verify">Post</a>
                 </td>
               </tr>
               <tr>
@@ -73,9 +100,11 @@
                 <td>3 Months</td>
                 <td>&#8358; 52,500.00</td>
                 <td>&#8358; 17,500.00</td>
+                <td>Not Paid</td>
+                <td>23 May 2019</td>
+                <td></td>
                 <td>
-                  <a href="#" class="btn btn-verify">Approve</a>
-                  <a href="#" class="btn btn-danger">Reject</a>
+                  <a href="#" class="btn btn-verify">Post</a>
                 </td>
               </tr>
               <tr>
@@ -86,9 +115,11 @@
                 <td>3 Months</td>
                 <td>&#8358; 52,500.00</td>
                 <td>&#8358; 17,500.00</td>
+                <td>Paid</td>
+                <td>23 May 2019</td>
+                <td>23 May 2019</td>
                 <td>
-                  <a href="#" class="btn btn-verify">Approve</a>
-                  <a href="#" class="btn btn-danger">Reject</a>
+                  <a href="#" class="btn btn-verify">Post</a>
                 </td>
               </tr>
               <tr>
@@ -99,9 +130,11 @@
                 <td>3 Months</td>
                 <td>&#8358; 52,500.00</td>
                 <td>&#8358; 17,500.00</td>
+                <td>Not Paid</td>
+                <td>23 May 2019</td>
+                <td></td>
                 <td>
-                  <a href="#" class="btn btn-verify">Approve</a>
-                  <a href="#" class="btn btn-danger">Reject</a>
+                  <a href="#" class="btn btn-verify">Post</a>
                 </td>
               </tr>
               <tr>
@@ -112,9 +145,11 @@
                 <td>3 Months</td>
                 <td>&#8358; 52,500.00</td>
                 <td>&#8358; 17,500.00</td>
+                <td>Not Paid</td>
+                <td>23 May 2019</td>
+                <td></td>
                 <td>
-                  <a href="#" class="btn btn-verify">Approve</a>
-                  <a href="#" class="btn btn-danger">Reject</a>
+                  <a href="#" class="btn btn-verify">Post</a>
                 </td>
               </tr>
             </tbody>
@@ -123,10 +158,13 @@
       </div>
     </main>
     <footer class="footer">
-      <div class="copyright">&copy; 2019 Quick <span class="text-gold">Credit</span></div>
+      <div class="copyright">
+        &copy; 2019 Quick <span class="text-gold">Credit</span>
+      </div>
     </footer>
   </div>
 
   <script src="../js/script.js"></script>
 </body>
+
 </html>

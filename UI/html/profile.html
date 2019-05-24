@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quick Credit</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <div class="headerwelcome">Welcome, Joe</div>
+      <div class="headerlink">
+        <a href="#"><i class="fa fa-key" aria-hidden="true"></i> Log Out</a>
+      </div>
+    </header>
+    <div id="menu-icon" class="menu-icon">
+      <i class="fa fa-bars"></i>
+    </div>
+    <aside id="sidenav" class="sidenav">
+      <div class="sidenav-brand">
+        <a class="sidenav-brand-link" href="./dashboard.html">Quick <span class="text-gold">Credit</span></a>
+      </div>
+      <ul class="sidenav-list">
+        <li class="sidenav-list-item"><a href="./dashboard.html"><i class="fa fa-dashboard"
+              aria-hidden="true"></i> Dashboard</a></li>
+        <li class="sidenav-list-item"><a href="./applyloan.html"><i class="fa fa-credit-card" aria-hidden="true"></i>
+            Apply For Loan</a></li>
+        <li class="sidenav-list-item"><a href="./loanhistory.html"><i class="fa fa-list-alt" aria-hidden="true"></i>
+            Repayment History</a></li>
+        <li class="sidenav-list-item"><a class="active" href="./profile.html"><i class="fa fa-user-circle-o"
+              aria-hidden="true"></i>
+            Profile</a></li>
+      </ul>
+      <div id="sidenav-close-icon" class="sidenav-close-icon">
+        <i class="fa fa-times"></i>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="main-overview-other">
+        <div class="main-content col-6">
+          <div class="content-title">
+            Profile
+          </div>
+          <form action="" method="post">
+            <div class="sub-title">
+              Personal information
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="fname" class="control-label">First Name <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="fname" placeholder="Enter First Name" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="lname" class="control-label">Last Name <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="email" class="control-label">Email <span class="req">*</span></label>
+                <div>
+                  <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="phone" class="control-label">Phone Number <span class="req">*</span></label>
+                <div>
+                  <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="dob" class="control-label">Date of Birth <span class="req">*</span></label>
+                <div>
+                  <input type="date" class="form-control sl" id="dob" required>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="sub-title">
+              Residential Information
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="address" class="control-label">Address <span class="req">*</span></label>
+                <div>
+                  <textarea class="form-control sl" id="address"
+                    placeholder="Enter Address" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="city" class="control-label">City <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="city" placeholder="Enter City" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="state" class="control-label">State <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="state" placeholder="Enter State" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="duration" class="control-label">Duration of Stay <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="duration" placeholder="Enter Duration of Stay" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="rtype" class="control-label">Residence Type <span class="req">*</span></label>
+                <div>
+                  <select class="form-control-select" id="rtype" required>
+                    <option value="">Select Residence Type</option>
+                    <option value="">Rented</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="sub-title">
+              Employment Information
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="education" class="control-label">Education <span class="req">*</span></label>
+                <div>
+                  <select class="form-control-select" id="education" required>
+                    <option value="">Select Education</option>
+                    <option value="">Student</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <label for="empstatus" class="control-label">Employment Status <span class="req">*</span></label>
+                <div>
+                  <select class="form-control-select" id="empstatus" required>
+                    <option value="">Select Employment Status</option>
+                    <option value="">Unemployed</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="employer" class="control-label">Employer/Business <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control sl" id="employer" placeholder="Enter Employer/Business" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="wduration" class="control-label">How Long Have You Worked There? <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="wduration" placeholder="Enter Duration" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="income" class="control-label">Current Income <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="income" placeholder="Enter Income" required>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="sub-title">
+              Bank Details
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="bank" class="control-label">Bank Name <span
+                    class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="bank" placeholder="Enter Bank Name" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="account" class="control-label">Account Number <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="account" placeholder="Enter Account Number" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="account_name" class="control-label">Account Name<span
+                    class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="account_name" placeholder="Enter Account Name" required>
+                </div>
+              </div>
+              <div class="col">
+                <label for="bvn" class="control-label">BVN <span class="req">*</span></label>
+                <div>
+                  <input type="text" class="form-control" id="bvn" placeholder="Enter BVN" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col" align="right">
+                <input type="submit" class="btn btn-primary" value="Save Changes">
+              </div>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="copyright">&copy; 2019 Quick <span class="text-gold">Credit</span></div>
+    </footer>
+  </div>
+
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
