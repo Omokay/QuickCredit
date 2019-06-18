@@ -1,5 +1,6 @@
 node_modules/
-package-lock.jsonf
+.nyc_output/processinfo
+package-lock.json
 build/
 coverage/
 .env
