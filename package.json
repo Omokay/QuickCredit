@@ -32,7 +32,7 @@
   "homepage": "https://github.com/Omokay/QuickCredit#readme",
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "@hapi/joi": "^15.0.1",
+    "@hapi/joi": "^15.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
